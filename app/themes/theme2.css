@@ -1,0 +1,30 @@
+html[data-theme="dark"] {
+    --color-bg1:#070F2B;
+
+    /* --color-bg1:#000000; */
+
+    --color-bg2:#1B1A55;
+    --color-bg3:#535C91;
+    --color-bg4:#9290C3;
+    --color-bg5:#6e6d95;
+    --color-bg6:rgba(236, 236, 46, 0.872);
+    --color-bg7:#6e6d95;
+    --color-bg8:#eaf36f;
+
+
+
+    --color-font1:white;
+    --color-font2:black;
+    --color-font3:red;
+    --color-font4:orange;
+    --color-font5:rgb(145, 145, 206);
+    --color-font6:rgb(46, 46, 47);
+    --color-font7:rgb(122, 122, 128);
+    --color-font8:rgb(170, 170, 194);
+
+
+
+
+
+
+}
