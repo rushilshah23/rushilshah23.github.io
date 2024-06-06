@@ -199,7 +199,9 @@ const HomePage = () => {
 
           </div>
           <div id="portraitImage" className="lg:flex-1 pt-0 lg:-mt-8 md:container md:justify-center md:items-center md:place-content-center md:flex">
-            <FadeInImageFromBottom src={'/portrait_2_wbg_edited.png'} alt='Rushil Shah' width={450} height={350} />
+            <FadeInImageFromBottom src={'/portrait_jun2024.jpeg'} alt='Rushil Shah' width={450} height={350} />
+            {/* <FadeInImageFromBottom src={'/portrait_2_wbg_edited.png'} alt='Rushil Shah' width={450} height={350} /> */}
+
             {/* <FadeInImageFromBottom src={'/portrait_animated.jpeg'} alt='Rushil Shah' width={450} height={350} /> */}
 
           </div>

@@ -21,5 +21,7 @@ export const skills: Skill[] = [
     { name: 'WebSockets', image: '/skills/websocket.svg', category: 'Others' },
     { name: 'Git', image: '/skills/github.svg', category: 'Others' },
     { name: 'Rabbit MQ', image: '/skills/rabbitmq.svg', category: 'Others' },
+    { name: 'SAS', image: '/skills/sas.svg', category: 'Others' },
+
 
   ];

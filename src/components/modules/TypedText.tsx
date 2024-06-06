@@ -75,9 +75,9 @@ const TypedText = ({ }: TypedTextProps) => {
                     setTypedText([]); // Reset typed text for next animation
 
                     setCurrentLetterIndex(0);
-                }, 300); // Adjust delay between texts as needed (3000 milliseconds = 3 seconds)
+                }, 120); // Adjust delay between texts as needed (3000 milliseconds = 3 seconds)
             }
-        }, 200);
+        }, 80);
 
     return () => {
         // audio.pause()
