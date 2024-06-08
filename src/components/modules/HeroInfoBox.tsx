@@ -17,7 +17,7 @@ const HeroInfoBox = ({}: HeroInfoBoxProps) => {
               <ul className='flex flex-row  px-4 justify-center gap-4 items-center '>
                 {socials.map((item,index)=>(
 
-                    <li  key={index}><a href={item.link}><Image src={item.iconURL} alt={item.title} height={35} width={35} /></a></li>
+                    <li  key={index}><a href={item.link} target='_blank' rel='noopener noreferrer'><Image src={item.iconURL} alt={item.title} height={35} width={35} /></a></li>
                 ))}
        
               </ul>

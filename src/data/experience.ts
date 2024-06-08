@@ -8,14 +8,18 @@ export interface Milestone {
 
 export const milestones:Milestone[] = [
     {
-        company:"HDFC Ergo (Datacurate's Client), Mumbai",
+        // company:"HDFC Ergo (Datacurate's Client), Mumbai",
+        company:"India's leading insurance company (Datacurate's Client), Mumbai",
+
         position:"Software Developer",
         startDate:"June 2023",
         endDate:"Present",
-        description:'• Developed and tested backend API overseeing intelligent auto-correct functionalities, intricate quote calculations and quote extractor from diverse competitors computer-generated PDF to scanned copy of a policy.\n • Developed complex quick and full quote generation for different products which eliminated the manual 8-days long process to instantaneous with real time updates.\n• Proposed and developed migration of legacy HTML, CSS, JavaScript code to Next JS for the quote generation site frontend which made the web app more readable and maintainable.\n'
+        description:'• Developed and tested backend API overseeing intelligent auto-correct functionalities, intricate quote calculations and quote extractor from diverse competitors computer-generated PDF to scanned copy of a policy.\n • Developed complex quick and full quote generation for different products which eliminated the manual 8-days long process to instantaneous and with real time updates.\n• Proposed and developed migration of legacy HTML, CSS, JavaScript code to Next JS for the quote generation site frontend which made the web app more readable and maintainable.\n'
     },
     {
-        company:"Kotak Life Insurance (Datacurate's Client), Mumbai",
+        company:"Another leading insurance company in India (Datacurate's Client), Mumbai",
+        // company:"Kotak Life Insurance (Datacurate's Client), Mumbai",
+
         position:"Software Developer",
         startDate:"June 2022",
         endDate:"June 2023",
