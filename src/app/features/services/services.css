@@ -1,0 +1,27 @@
+.services {
+  padding-block: var(--space-8) var(--space-9);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: var(--space-6);
+}
+
+.services__cta {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  text-align: center;
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-raised);
+}
+
+.services__cta-text {
+  max-width: 34rem;
+  color: var(--color-text-muted);
+  font-size: var(--font-body-sm);
+}

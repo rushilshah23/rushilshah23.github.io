@@ -1,0 +1,22 @@
+<ul class="social-links">
+  @for (link of links(); track link.label) {
+    <li>
+      <a
+        class="social-links__link"
+        [href]="link.url"
+        [attr.target]="link.url.startsWith('mailto:') ? null : '_blank'"
+        [attr.rel]="link.url.startsWith('mailto:') ? null : 'noopener noreferrer'"
+        [attr.aria-label]="link.label"
+      >
+        <img
+          class="social-links__icon"
+          [src]="link.icon"
+          [alt]=""
+          width="24"
+          height="24"
+          loading="lazy"
+        />
+      </a>
+    </li>
+  }
+</ul>

@@ -1,0 +1,55 @@
+// =============================================================================
+// Buttons & link-as-button primitives (shared across sections)
+// =============================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--font-body-sm);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: var(--border-thin) solid transparent;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--gradient-soft);
+  color: var(--color-brand-contrast);
+}
+
+.btn--primary:hover {
+  color: var(--color-brand-contrast);
+  filter: brightness(1.05);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.btn--ghost:hover {
+  border-color: var(--color-brand);
+  color: var(--color-text);
+}
+
+.btn--lg {
+  padding: var(--space-4) var(--space-6);
+  font-size: 1rem;
+}

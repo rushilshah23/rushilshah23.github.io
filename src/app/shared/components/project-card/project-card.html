@@ -1,0 +1,45 @@
+<article class="project-card">
+  <div class="project-card__media">
+    @if (project().media; as media) {
+      <img
+        [src]="media"
+        [alt]="project().mediaAlt ?? project().title"
+        width="640"
+        height="360"
+        loading="lazy"
+        decoding="async"
+      />
+    } @else {
+      <span class="project-card__monogram" aria-hidden="true">
+        {{ project().title.charAt(0) }}
+      </span>
+    }
+    <span class="project-card__year mono">{{ project().year }}</span>
+  </div>
+
+  <div class="project-card__body">
+    <h3 class="project-card__title">{{ project().title }}</h3>
+    <p class="project-card__summary">{{ project().summary }}</p>
+
+    <ul class="project-card__tags" aria-label="Technologies">
+      @for (tag of project().tags; track tag) {
+        <li class="project-card__tag">{{ tag }}</li>
+      }
+    </ul>
+
+    <div class="project-card__links">
+      @if (project().projectUrl; as liveUrl) {
+        <a class="project-card__link" [href]="liveUrl" target="_blank" rel="noopener">
+          Live ↗
+        </a>
+      }
+      @if (project().privateRepo) {
+        <span class="project-card__link project-card__link--muted">Private repo</span>
+      } @else if (project().codeUrl; as codeUrl) {
+        <a class="project-card__link" [href]="codeUrl" target="_blank" rel="noopener">
+          Source ↗
+        </a>
+      }
+    </div>
+  </div>
+</article>

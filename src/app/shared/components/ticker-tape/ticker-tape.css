@@ -1,0 +1,69 @@
+/* ==========================================================================
+   TickerTape — market-tape marquee
+   ========================================================================== */
+
+.ticker {
+  overflow: hidden;
+  border-block: var(--border-thin) solid var(--color-border);
+  background: var(--color-bg-raised);
+}
+
+.ticker__track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 46s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover so the tape can be read */
+.ticker:hover .ticker__track {
+  animation-play-state: paused;
+}
+
+.ticker__list {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5625rem 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--font-body-sm);
+  letter-spacing: 0.05em;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+.ticker__symbol {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.ticker__tick {
+  font-size: 0.625rem;
+  line-height: 1;
+}
+
+.ticker__tick--up {
+  color: var(--color-up);
+}
+
+.ticker__tick--down {
+  color: var(--color-down);
+}
+
+@keyframes ticker-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker__track {
+    animation: none;
+  }
+}

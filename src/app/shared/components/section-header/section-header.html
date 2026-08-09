@@ -1,0 +1,11 @@
+<header class="section-header">
+  <p class="label section-header__label">{{ label() }}</p>
+  @if (level() === 'h1') {
+    <h1 class="h1 section-header__title">{{ title() }}</h1>
+  } @else {
+    <h2 class="h2 section-header__title">{{ title() }}</h2>
+  }
+  @if (lead(); as leadText) {
+    <p class="lead section-header__lead">{{ leadText }}</p>
+  }
+</header>

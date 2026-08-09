@@ -1,0 +1,15 @@
+.projects {
+  padding-block: var(--space-8) var(--space-9);
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-6);
+}
+
+.projects__more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-8);
+}

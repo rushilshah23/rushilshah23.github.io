@@ -1,0 +1,123 @@
+<section class="about" aria-labelledby="about-heading">
+  <div class="container about__intro">
+    <div class="about__copy" appReveal>
+      <p class="label">About</p>
+      <h1 id="about-heading" class="h1 about__title">
+        Engineer. Problem-solver. <span class="about__highlight">Builder of things that ship.</span>
+      </h1>
+      <p class="lead about__lead">
+        I'm {{ site.name }} — a {{ site.title }} based in Mumbai. For the last
+        5+ years I've built and operated production software in industries
+        where downtime and mistakes are expensive: consumer lending,
+        insurance and fintech SaaS.
+      </p>
+      <div class="about__body">
+        <p>
+          My sweet spot is the full stack plus the operations layer: I design
+          the architecture, write the code, containerize it, ship it to the
+          cloud, and make sure it stays up. The stack I reach for: FastAPI
+          and Node.js on the backend, event-driven workers on Celery and
+          RabbitMQ, Angular and Next.js up front, and everything defined as
+          infrastructure-as-code on AWS.
+        </p>
+        <p>
+          At a lending NBFC, I integrated loan origination with loan
+          management end-to-end — automating disbursement, payments and
+          reconciliation, saving 1,500+ employee-hours a month and supporting
+          an INR 200 crore loan book. At an insurance giant, I turned an
+          8-day manual quote process into instant, real-time generation. At
+          another, I cut data-loading time by 50% with parallel ETL
+          pipelines. And before all that, I led a 12-person team shipping a
+          watershed-management app for Art of Living.
+        </p>
+        <p>
+          Today I work with startups and businesses as a freelance engineer
+          and fractional tech lead — because the most valuable thing I can do
+          is help teams ship faster with fewer surprises.
+        </p>
+      </div>
+
+      <dl class="about__facts">
+        @for (fact of facts; track fact.label) {
+          <div class="about__fact">
+            <dt>{{ fact.label }}</dt>
+            <dd>{{ fact.value }}</dd>
+          </div>
+        }
+      </dl>
+
+      <div class="about__actions">
+        <a class="btn btn--primary" routerLink="/contact">Work with me</a>
+        <a class="btn btn--ghost" href="{{ site.resumeUrl }}" download>Download résumé</a>
+      </div>
+    </div>
+
+    <div class="about__media" appReveal [revealDelay]="120">
+      <img
+        src="/assets/profile.webp"
+        alt="Portrait of Rushil Shah"
+        width="480"
+        height="600"
+        decoding="async"
+        class="about__portrait"
+      />
+      <div class="about__card">
+        <p class="about__card-name">{{ site.name }}</p>
+        <p class="about__card-role">{{ site.title }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-timeline container" aria-labelledby="experience-heading" appReveal>
+  <app-section-header
+    label="Career"
+    title="Where I've worked"
+    lead="Every role shipped real code to production — in lending, insurance, data engineering and field operations."
+  />
+
+  <app-timeline [items]="experience" />
+</section>
+
+<section class="about-achievements container" aria-labelledby="achievements-heading" appReveal>
+  <app-section-header
+    label="Recognition"
+    title="Certifications & awards"
+    lead="Proof points beyond the day job."
+  />
+
+  <ul class="about-achievements__grid">
+    @for (item of achievements; track item.title; let i = $index) {
+      <li appReveal [revealDelay]="i * 60">
+        <a
+          class="achievement-card"
+          [href]="item.url ?? '#'"
+          [attr.aria-disabled]="!item.url"
+          [tabIndex]="item.url ? 0 : -1"
+        >
+          <span class="achievement-card__kind mono">{{ item.kind }}</span>
+          <span class="achievement-card__title">{{ item.title }}</span>
+          <span class="achievement-card__meta">
+            {{ item.issuer }} &middot; {{ item.year }}
+            @if (item.url) {
+              <span aria-hidden="true">&nbsp;&nearr;</span>
+            }
+          </span>
+        </a>
+      </li>
+    }
+  </ul>
+</section>
+
+<section class="about-cta container" appReveal>
+  <div class="about-cta__inner">
+    <h2 class="h3 about-cta__title">Want the full story?</h2>
+    <p class="about-cta__text">
+      Grab the résumé, or better — let's talk about what you're building.
+    </p>
+    <div class="about-cta__actions">
+      <a class="btn btn--primary" routerLink="/contact">Get in touch</a>
+      <a class="btn btn--ghost" href="{{ site.resumeUrl }}" download>Résumé</a>
+    </div>
+  </div>
+</section>

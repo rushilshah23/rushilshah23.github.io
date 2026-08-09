@@ -1,0 +1,72 @@
+<section class="contact container" aria-labelledby="contact-heading" appReveal>
+  <app-section-header
+    label="Contact"
+    title="Let's build something together"
+    lead="Tell me what you're trying to achieve — I'll tell you honestly whether I can help, and how."
+    level="h1"
+  />
+
+  <div class="contact__grid">
+    <div class="contact__channels">
+      @for (channel of channels; track channel.label; let i = $index) {
+        <a class="contact-card" [href]="channel.href" appReveal [revealDelay]="i * 70">
+          <span class="contact-card__label mono">{{ channel.label }}</span>
+          <span class="contact-card__value">{{ channel.value }}</span>
+          <span class="contact-card__note">{{ channel.note }}</span>
+        </a>
+      }
+
+      <div class="contact-card contact-card--plain" appReveal [revealDelay]="210">
+        <span class="contact-card__label mono">Location</span>
+        <span class="contact-card__value">{{ site.location }}</span>
+        <span class="contact-card__note">Remote-first, happy to align with your timezone.</span>
+      </div>
+
+      <div class="contact__socials" appReveal [revealDelay]="280">
+        <p class="contact__socials-label label">Find me online</p>
+        <app-social-links [links]="socialLinks" />
+      </div>
+    </div>
+
+    <div class="contact__aside" appReveal [revealDelay]="120">
+      <h2 class="h3 contact__aside-title">What happens next</h2>
+      <ol class="contact__steps">
+        @for (step of steps; track step.title) {
+          <li class="contact__step">
+            <span class="contact__step-number mono">{{ $index + 1 }}</span>
+            <div>
+              <h3 class="contact__step-title">{{ step.title }}</h3>
+              <p class="contact__step-text">{{ step.text }}</p>
+            </div>
+          </li>
+        }
+      </ol>
+      <a class="btn btn--primary btn--lg contact__cta" href="mailto:{{ site.email }}">
+        Email {{ site.name }}
+      </a>
+      <p class="contact__note">
+        Prefer async? Email works — no forms, no spam, just a real human reply.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-faq container" aria-labelledby="faq-heading" appReveal>
+  <app-section-header
+    label="FAQ"
+    title="Answers, up front"
+    lead="The questions every client asks — answered honestly."
+  />
+
+  <div class="contact-faq__list">
+    @for (faq of faqs; track faq.question; let i = $index) {
+      <details class="faq-item" appReveal [revealDelay]="i * 40">
+        <summary class="faq-item__question">
+          {{ faq.question }}
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </summary>
+        <p class="faq-item__answer">{{ faq.answer }}</p>
+      </details>
+    }
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<section class="expertise container" aria-labelledby="expertise-heading" appReveal>
+  <app-section-header
+    label="Technical Expertise"
+    title="How I build"
+    lead="A breadth of tools I use to ship reliable, scalable systems — organized by the domains I work across every day."
+    level="h1"
+  />
+
+  <div class="expertise__domains">
+    @for (domain of domains; track domain.title; let i = $index) {
+      <div class="expertise__domain" appReveal [revealDelay]="i * 60">
+        <app-skill-domain [domain]="domain" />
+      </div>
+    }
+  </div>
+</section>

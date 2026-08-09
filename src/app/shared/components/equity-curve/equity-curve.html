@@ -1,0 +1,53 @@
+<div class="equity-curve" [class.equity-curve--drawn]="drawn()">
+  <svg
+    viewBox="0 0 640 260"
+    role="img"
+    aria-label="Career equity curve. From a Flutter internship at Art of Living in 2020, through insurance systems at Datacurate and a lending platform at Western Capital Advisors, to a senior engineering role at Go Digital — five plus years of shipped systems today."
+  >
+    <defs>
+      <linearGradient id="eq-fill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--color-up)" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="var(--color-up)" stop-opacity="0" />
+      </linearGradient>
+      <linearGradient id="eq-line" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="var(--color-brand)" />
+        <stop offset="100%" stop-color="var(--color-up)" />
+      </linearGradient>
+    </defs>
+
+    @for (line of gridLines(); track line) {
+      <line
+        class="equity-curve__grid"
+        x1="0"
+        x2="640"
+        [attr.y1]="line"
+        [attr.y2]="line"
+      />
+    }
+
+    <path class="equity-curve__area" [attr.d]="areaPath()" />
+    <path class="equity-curve__line" [attr.d]="linePath()" />
+
+    @for (m of milestones; track m.year; let i = $index) {
+      <g class="equity-curve__point" [style.animation-delay]="pointDelay(i)">
+        <circle [attr.cx]="x(i)" [attr.cy]="y(m.value)" r="5" />
+        <text
+          class="equity-curve__year"
+          [attr.x]="x(i)"
+          [attr.y]="y(m.value) - 16"
+          text-anchor="middle"
+        >
+          {{ m.year }}
+        </text>
+        <text
+          class="equity-curve__label"
+          [attr.x]="x(i)"
+          [attr.y]="y(m.value) + 30"
+          text-anchor="middle"
+        >
+          {{ m.label }}
+        </text>
+      </g>
+    }
+  </svg>
+</div>

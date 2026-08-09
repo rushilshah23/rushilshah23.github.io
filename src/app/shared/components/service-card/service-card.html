@@ -1,0 +1,14 @@
+<article class="service-card">
+  <h3 class="service-card__title">{{ service().title }}</h3>
+  <p class="service-card__summary">{{ service().summary }}</p>
+
+  <ul class="service-card__deliverables">
+    @for (item of service().deliverables; track item) {
+      <li class="service-card__deliverable">{{ item }}</li>
+    }
+  </ul>
+
+  <a class="service-card__cta" routerLink="{{ service().ctaTarget }}">
+    {{ service().ctaLabel }}
+  </a>
+</article>

@@ -1,0 +1,20 @@
+.skill-domain__title {
+  font-size: var(--font-h3);
+  margin-bottom: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.skill-domain__title::after {
+  content: "";
+  flex: 1;
+  height: var(--border-thin);
+  background: var(--color-border);
+}
+
+.skill-domain__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}

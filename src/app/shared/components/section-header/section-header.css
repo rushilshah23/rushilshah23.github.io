@@ -1,0 +1,18 @@
+.section-header {
+  display: grid;
+  gap: var(--space-4);
+  max-width: var(--content-max);
+  margin-bottom: var(--space-7);
+}
+
+.section-header__label {
+  color: var(--color-brand);
+}
+
+.section-header__title {
+  letter-spacing: var(--tracking-tight);
+}
+
+.section-header__lead {
+  font-size: 1.0625rem;
+}

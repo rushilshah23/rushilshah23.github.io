@@ -1,0 +1,68 @@
+// =============================================================================
+// Typography
+// =============================================================================
+
+.h1 {
+  font-size: var(--font-h1);
+}
+
+.h2 {
+  font-size: var(--font-h2);
+}
+
+.h3 {
+  font-size: var(--font-h3);
+}
+
+.h4 {
+  font-size: var(--font-h4);
+}
+
+.display {
+  font-size: var(--font-display);
+  line-height: var(--leading-tight);
+}
+
+.lead {
+  font-size: 1.125rem;
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.text-body {
+  font-size: var(--font-body);
+  color: var(--color-text-muted);
+}
+
+.text-sm {
+  font-size: var(--font-body-sm);
+}
+
+.text-xs {
+  font-size: var(--font-body-xs);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-faint {
+  color: var(--color-text-faint);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--font-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.serif {
+  font-family: Georgia, "Times New Roman", serif;
+}

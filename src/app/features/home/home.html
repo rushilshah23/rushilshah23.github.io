@@ -1,0 +1,196 @@
+<!-- ======================= Ticker tape ======================= -->
+<app-ticker-tape [items]="tickerItems" />
+
+<!-- ======================= Hero ======================= -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero__glow hero__glow--one" aria-hidden="true"></div>
+  <div class="hero__glow hero__glow--two" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="hero__badge">
+        <span class="hero__dot" aria-hidden="true"></span>
+        <span class="hero__badge-label mono">{{ hero.eyebrow }}</span>
+      </p>
+
+      <h1 id="hero-heading" class="display hero__headline">
+        {{ hero.headline }} <span class="hero__highlight">{{ hero.highlight }}</span>
+      </h1>
+
+      <p class="hero__roles">
+        <span class="hero__roles-label label">I&nbsp;am&nbsp;a</span>
+        <app-typewriter [words]="site.roles" />
+      </p>
+
+      <p class="lead hero__subhead">{{ hero.subhead }}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" routerLink="{{ hero.primaryCta.target }}">
+          {{ hero.primaryCta.label }}
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="btn btn--ghost btn--lg" routerLink="{{ hero.secondaryCta.target }}">
+          {{ hero.secondaryCta.label }}
+        </a>
+        <a class="btn btn--ghost btn--lg" href="{{ site.resumeUrl }}" download>
+          Résumé
+        </a>
+      </div>
+    </div>
+
+    <aside class="hero-card" appReveal aria-label="Profile card for Rushil Shah">
+      <div class="hero-card__top mono">
+        <span>RUSHIL.SH / ID</span>
+        <span class="hero-card__status">
+          <span class="hero-card__dot" aria-hidden="true"></span>
+          ONLINE
+        </span>
+      </div>
+      <div class="hero-card__photo">
+        <img
+          src="/assets/profile.webp"
+          alt="Portrait of Rushil Shah"
+          width="600"
+          height="750"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="hero-card__body">
+        <p class="hero-card__name">{{ site.name }}</p>
+        <p class="hero-card__handle mono">{{ site.location }}</p>
+        <dl class="hero-card__meta mono">
+          <div class="hero-card__meta-row">
+            <dt>ROLE</dt>
+            <dd>{{ site.roles[0] }}</dd>
+          </div>
+          <div class="hero-card__meta-row">
+            <dt>EXP</dt>
+            <dd>{{ site.experience }}</dd>
+          </div>
+          <div class="hero-card__meta-row">
+            <dt>SECTOR</dt>
+            <dd>FINTECH</dd>
+          </div>
+          <div class="hero-card__meta-row">
+            <dt>PING</dt>
+            <dd>{{ site.email }}</dd>
+          </div>
+        </dl>
+      </div>
+    </aside>
+
+    <app-equity-curve />
+
+    <ul class="hero__highlights">
+      @for (item of hero.highlights; track item) {
+        <li class="hero__highlight-item">{{ item }}</li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- ======================= Industries ======================= -->
+<section class="industries container" aria-labelledby="industries-heading" appReveal>
+  <app-section-header
+    label="Industries"
+    title="Where the systems run in production"
+    lead="Regulated, high-stakes environments where reliability is not optional — and where automation pays for itself fast."
+  />
+
+  <div class="industries__grid">
+    @for (industry of industries; track industry.name; let i = $index) {
+      <article class="industry-card" appReveal [revealDelay]="i * 80">
+        <h3 class="industry-card__name">{{ industry.name }}</h3>
+        <p class="industry-card__description">{{ industry.description }}</p>
+        <ul class="industry-card__points">
+          @for (point of industry.points; track point) {
+            <li>{{ point }}</li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- ======================= Stats ======================= -->
+<section class="stats" aria-label="Key numbers" appReveal>
+  <div class="container stats__grid">
+    @for (stat of stats; track stat.label) {
+      <div class="stat">
+        <p class="stat__code mono">{{ stat.ticker ?? '—' }}</p>
+        <p class="stat__value">
+          <span
+            class="stat__glyph"
+            [class.stat__glyph--up]="stat.direction !== 'down'"
+            [class.stat__glyph--down]="stat.direction === 'down'"
+            aria-hidden="true"
+          >
+            {{ stat.direction === 'down' ? '▼' : '▲' }}
+          </span>
+          {{ stat.value }}
+        </p>
+        <p class="stat__label">{{ stat.label }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ======================= Services preview ======================= -->
+<section class="services-preview container" aria-labelledby="services-preview-heading" appReveal>
+  <app-section-header
+    label="Services"
+    title="What I can build for you"
+    lead="From a single sprint to ongoing fractional leadership — every engagement starts with a written scope and a fixed quote."
+  />
+
+  <div class="services-preview__grid">
+    @for (service of featuredServices; track service.id; let i = $index) {
+      <app-service-card [service]="service" appReveal [revealDelay]="i * 80" />
+    }
+  </div>
+
+  <div class="services-preview__more">
+    <a class="btn btn--ghost" routerLink="/services">See all services</a>
+  </div>
+</section>
+
+<!-- ======================= Projects preview ======================= -->
+<section class="projects-preview container" aria-labelledby="projects-preview-heading" appReveal>
+  <app-section-header
+    label="Selected work"
+    title="Shipped systems, real outcomes"
+    lead="GST invoice automation, auth microservices, trading tooling — built end-to-end and running in production."
+  />
+
+  <div class="projects-preview__grid">
+    @for (project of featuredProjects; track project.id; let i = $index) {
+      <app-project-card [project]="project" appReveal [revealDelay]="i * 80" />
+    }
+  </div>
+
+  <div class="projects-preview__more">
+    <a class="btn btn--ghost" routerLink="/projects">All projects</a>
+  </div>
+</section>
+
+<!-- ======================= CTA band ======================= -->
+<section class="cta-band container" aria-labelledby="cta-heading" appReveal>
+  <div class="cta-band__inner">
+    <div class="cta-band__glow" aria-hidden="true"></div>
+    <p class="cta-band__status mono">
+      <span class="cta-band__tick" aria-hidden="true">▲</span>
+      signal: strong
+    </p>
+    <h2 id="cta-heading" class="h2 cta-band__title">
+      Have a signal that needs shipping?
+    </h2>
+    <p class="cta-band__text">
+      From first call to production — written scope, fixed quote, no surprises.
+    </p>
+    <div class="cta-band__actions">
+      <a class="btn btn--primary btn--lg" routerLink="/contact">Start the conversation</a>
+      <a class="btn btn--ghost btn--lg" href="mailto:{{ site.email }}">Email me directly</a>
+    </div>
+  </div>
+</section>

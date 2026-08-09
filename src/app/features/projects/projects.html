@@ -1,0 +1,20 @@
+<section class="projects container" aria-labelledby="projects-heading" appReveal>
+  <app-section-header
+    label="Projects"
+    title="Selected work, shipped"
+    lead="Real products with real constraints — built end-to-end. More experiments and tools land on GitHub regularly."
+    level="h1"
+  />
+
+  <div class="projects__grid">
+    @for (project of projects; track project.id; let i = $index) {
+      <app-project-card [project]="project" appReveal [revealDelay]="(i % 3) * 80" />
+    }
+  </div>
+
+  <div class="projects__more">
+    <a class="btn btn--ghost" href="{{ site.social.github }}" target="_blank" rel="noopener">
+      More on GitHub &nearr;
+    </a>
+  </div>
+</section>

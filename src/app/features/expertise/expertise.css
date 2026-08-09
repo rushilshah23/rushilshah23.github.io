@@ -1,0 +1,15 @@
+.expertise {
+  padding-block: var(--space-8) var(--space-9);
+}
+
+.expertise__header {
+  max-width: var(--content-max);
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.expertise__domains {
+  display: grid;
+  gap: var(--space-8);
+}

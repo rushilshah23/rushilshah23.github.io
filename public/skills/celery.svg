@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Celery">
+  <rect width="128" height="128" rx="20" fill="#101418"/>
+  <!-- celery stalk -->
+  <path d="M50 96c0-22 8-40 14-52 3-6 4-14 4-22" fill="none" stroke="#8BC34A" stroke-width="9" stroke-linecap="round"/>
+  <path d="M64 96c0-22 6-42 12-54 3-6 5-14 5-22" fill="none" stroke="#7CB342" stroke-width="9" stroke-linecap="round"/>
+  <path d="M78 96c0-18 6-34 11-44 3-5 4-12 4-18" fill="none" stroke="#9CCC65" stroke-width="8" stroke-linecap="round"/>
+  <!-- leaves -->
+  <path d="M68 22c-8-8-18-10-26-8 2 8 8 14 18 15z" fill="#558B2F"/>
+  <path d="M72 18c-4-10-12-16-20-17 4 8 10 14 20 15z" fill="#689F38"/>
+  <path d="M82 26c2-10 10-16 18-17-2 8-8 13-16 15z" fill="#558B2F"/>
+</svg>

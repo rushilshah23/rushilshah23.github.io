@@ -1,0 +1,130 @@
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" routerLink="/" aria-label="{{ site.name }} home">
+      <span class="site-header__monogram" aria-hidden="true">R</span>
+      <span class="site-header__name">{{ site.name }}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary" [class.site-nav--open]="menuOpen()">
+      <ul class="site-nav__list">
+        @for (link of navLinks; track link.path) {
+          <li>
+            <a
+              class="site-nav__link"
+              routerLink="{{ link.path }}"
+              routerLinkActive="site-nav__link--active"
+              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+              (click)="closeMenu()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <button
+        class="theme-toggle"
+        type="button"
+        (click)="toggleTheme()"
+        [attr.aria-label]="theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+        [attr.aria-pressed]="theme() === 'light'"
+      >
+        @if (theme() === 'dark') {
+          <svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+        } @else {
+          <svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        }
+      </button>
+
+      <a class="btn btn--primary site-header__cta" routerLink="/contact">
+        Hire me
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        (click)="toggleMenu()"
+        (keydown)="onMenuKeydown($event)"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-menu"
+        [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+      >
+        <span class="menu-toggle__bar" [class.menu-toggle__bar--open]="menuOpen()"></span>
+        <span class="menu-toggle__bar" [class.menu-toggle__bar--open]="menuOpen()"></span>
+        <span class="menu-toggle__bar" [class.menu-toggle__bar--open]="menuOpen()"></span>
+      </button>
+    </div>
+  </div>
+
+  @if (menuOpen()) {
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" (keydown)="onMenuKeydown($event)">
+      <ul class="mobile-menu__list">
+        @for (link of navLinks; track link.path) {
+          <li>
+            <a
+              class="mobile-menu__link"
+              routerLink="{{ link.path }}"
+              routerLinkActive="mobile-menu__link--active"
+              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+              (click)="closeMenu()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+      <a class="btn btn--primary mobile-menu__cta" routerLink="/contact" (click)="closeMenu()">
+        Hire me
+      </a>
+    </nav>
+  }
+</header>
+
+<main class="site-main" id="main-content">
+  <router-outlet />
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <p class="site-footer__name">{{ site.name }}</p>
+      <p class="site-footer__tagline">{{ site.title }}</p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer">
+      <ul class="site-footer__links">
+        @for (link of navLinks; track link.path) {
+          <li>
+            <a class="site-footer__link" routerLink="{{ link.path }}">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="site-footer__contact">
+      <a class="site-footer__email" href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <p class="site-footer__location">{{ site.location }}</p>
+    </div>
+
+    <app-social-links [links]="socialLinks" />
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p class="site-footer__copyright mono">
+      <span class="site-footer__prompt" aria-hidden="true">[rushil@mumbai ~]$</span>
+      status:
+      <span class="site-footer__status">open to new builds</span>
+      · ping: <a class="site-footer__ping" href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </p>
+    <a class="site-footer__top" href="#main-content">Back to top ↑</a>
+  </div>
+</footer>

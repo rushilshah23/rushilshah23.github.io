@@ -1,0 +1,10 @@
+<section class="skill-domain">
+  <h2 class="skill-domain__title">{{ domain().title }}</h2>
+  <ul class="skill-domain__list">
+    @for (skill of domain().skills; track skill.name) {
+      <li>
+        <app-skill-card [skill]="skill" />
+      </li>
+    }
+  </ul>
+</section>

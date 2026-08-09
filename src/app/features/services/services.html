@@ -1,0 +1,22 @@
+<section class="services container" aria-labelledby="services-heading" appReveal>
+  <app-section-header
+    label="Services"
+    title="What I can build for you"
+    lead="Focused on outcomes that matter — faster delivery, lower cost, higher availability, and capabilities that move your business forward."
+    level="h1"
+  />
+
+  <div class="services__grid">
+    @for (service of services; track service.id; let i = $index) {
+      <app-service-card [service]="service" appReveal [revealDelay]="i * 80" />
+    }
+  </div>
+
+  <div class="services__cta">
+    <p class="services__cta-text">
+      Not sure which service fits? Tell me what you're trying to achieve and
+      I'll point you in the right direction — free.
+    </p>
+    <a class="btn btn--primary" routerLink="/contact">Book a free call</a>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+<ol class="timeline">
+  @for (item of items(); track item.company) {
+    <li class="timeline__item">
+      <span class="timeline__marker" aria-hidden="true"></span>
+      <article class="timeline__card">
+        <header class="timeline__header">
+          <p class="timeline__period mono">{{ item.period }}</p>
+          @if (item.current) {
+            <span class="timeline__badge">Current</span>
+          }
+          <h3 class="timeline__role">{{ item.role }}</h3>
+          <p class="timeline__company">{{ item.company }}</p>
+        </header>
+
+        <p class="timeline__summary">{{ item.summary }}</p>
+
+        <ul class="timeline__highlights">
+          @for (point of item.highlights; track point) {
+            <li>{{ point }}</li>
+          }
+        </ul>
+
+        <ul class="timeline__tags" aria-label="Domains and tools">
+          @for (tag of item.tags; track tag) {
+            <li>{{ tag }}</li>
+          }
+        </ul>
+      </article>
+    </li>
+  }
+</ol>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="GST invoice processing pipeline: invoice enters an API gateway, flows through a Celery queue to a model-agnostic AI worker, and lands in a database">
+  <defs>
+    <linearGradient id="gm-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10131a"/>
+      <stop offset="100%" stop-color="#0a0c11"/>
+    </linearGradient>
+    <linearGradient id="gm-node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1f2b"/>
+      <stop offset="100%" stop-color="#141823"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#gm-bg)"/>
+
+  <!-- grid -->
+  <g stroke="#1e2430" stroke-width="1">
+    <line x1="0" y1="72" x2="640" y2="72"/>
+    <line x1="0" y1="144" x2="640" y2="144"/>
+    <line x1="0" y1="216" x2="640" y2="216"/>
+    <line x1="0" y1="288" x2="640" y2="288"/>
+  </g>
+
+  <!-- header -->
+  <text x="32" y="38" font-family="monospace" font-size="13" letter-spacing="2" fill="#7d8597">GSTMIND.QZZ.IO</text>
+  <text x="608" y="38" font-family="monospace" font-size="11" fill="#34d399" text-anchor="end">▲ LIVE</text>
+  <line x1="32" y1="52" x2="608" y2="52" stroke="#232a38" stroke-width="1"/>
+
+  <!-- invoice doc -->
+  <g transform="translate(48,180)">
+    <rect width="56" height="72" rx="4" fill="#141823" stroke="#34d399" stroke-width="1.5"/>
+    <line x1="12" y1="18" x2="44" y2="18" stroke="#7d8597" stroke-width="3"/>
+    <line x1="12" y1="30" x2="44" y2="30" stroke="#7d8597" stroke-width="3"/>
+    <line x1="12" y1="42" x2="32" y2="42" stroke="#7d8597" stroke-width="3"/>
+    <path d="M40 52 l8 8 -8 8z" fill="#34d399"/>
+  </g>
+  <text x="76" y="282" font-family="monospace" font-size="10" fill="#7d8597" text-anchor="middle">INVOICE</text>
+
+  <!-- arrow 1 -->
+  <path d="M112 216 h34" stroke="#3b4356" stroke-width="2" marker-end="url(#gm-arrow)"/>
+  <defs>
+    <marker id="gm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#3b4356"/>
+    </marker>
+  </defs>
+
+  <!-- gateway -->
+  <g transform="translate(146,166)">
+    <rect width="92" height="56" rx="6" fill="url(#gm-node)" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="46" y="26" font-family="monospace" font-size="11" fill="#e5e9f0" text-anchor="middle">API</text>
+    <text x="46" y="42" font-family="monospace" font-size="11" fill="#e5e9f0" text-anchor="middle">GATEWAY</text>
+  </g>
+
+  <!-- arrow 2 -->
+  <path d="M246 194 h34" stroke="#3b4356" stroke-width="2" marker-end="url(#gm-arrow)"/>
+
+  <!-- celery queue -->
+  <g transform="translate(280,166)">
+    <rect width="92" height="56" rx="6" fill="url(#gm-node)" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="46" y="26" font-family="monospace" font-size="11" fill="#e5e9f0" text-anchor="middle">CELERY</text>
+    <text x="46" y="42" font-family="monospace" font-size="11" fill="#e5e9f0" text-anchor="middle">QUEUE</text>
+  </g>
+
+  <!-- arrow 3 -->
+  <path d="M380 194 h34" stroke="#3b4356" stroke-width="2" marker-end="url(#gm-arrow)"/>
+
+  <!-- AI worker -->
+  <g transform="translate(414,150)">
+    <rect width="92" height="88" rx="6" fill="url(#gm-node)" stroke="#34d399" stroke-width="1.5"/>
+    <circle cx="46" cy="30" r="12" stroke="#34d399" stroke-width="1.5" fill="none"/>
+    <circle cx="46" cy="30" r="4" fill="#34d399"/>
+    <path d="M34 44 l24 -8" stroke="#34d399" stroke-width="1.5"/>
+    <text x="46" y="62" font-family="monospace" font-size="10" fill="#e5e9f0" text-anchor="middle">AI WORKER</text>
+    <text x="46" y="76" font-family="monospace" font-size="9" fill="#7d8597" text-anchor="middle">MODEL-AGNOSTIC</text>
+  </g>
+
+  <!-- arrow 4 down -->
+  <path d="M460 246 v24" stroke="#3b4356" stroke-width="2" marker-end="url(#gm-arrow)"/>
+
+  <!-- database -->
+  <g transform="translate(420,276)">
+    <ellipse cx="40" cy="10" rx="40" ry="10" fill="#141823" stroke="#8b5cf6" stroke-width="1.5"/>
+    <path d="M0 10 v28 a40 10 0 0 0 80 0 v-28" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="40" y="44" font-family="monospace" font-size="10" fill="#7d8597" text-anchor="middle">POSTGRES</text>
+  </g>
+
+  <!-- throughput badge -->
+  <g transform="translate(500,120)">
+    <rect width="108" height="40" rx="20" fill="#0d2017" stroke="#34d399" stroke-width="1"/>
+    <text x="54" y="25" font-family="monospace" font-size="11" fill="#34d399" text-anchor="middle">▼ 90% MANUAL WORK</text>
+  </g>
+</svg>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <title>Rushil Shah — Senior Fullstack Engineer · Fintech & Cloud</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rushil Shah — Senior Fullstack Engineer in Mumbai. 5+ years building production fintech: lending platforms, insurance systems and SaaS, from signal to production — FastAPI, Angular, AWS.">
+  <meta name="author" content="Rushil Shah">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0d0e13" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+
+  <!-- Open Graph / social sharing (per-page values are set at runtime) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rushil Shah">
+  <meta property="og:image" content="https://rushilshah.dev/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="canonical" href="https://rushilshah.dev/">
+
+  <!-- Fonts: non-blocking load with swap fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    media="print"
+    onload="this.media='all'"
+  >
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    >
+  </noscript>
+
+  <script>
+    // Apply persisted or system theme before first paint to avoid flash.
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (e) {}
+      var dark = stored === 'dark' ||
+        (stored === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var attr = dark ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', attr);
+    })();
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

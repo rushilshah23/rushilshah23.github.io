@@ -1,0 +1,12 @@
+export { SITE } from './site';
+export { SECTIONS, NAV_LINKS } from './sections';
+export { HERO } from './hero';
+export { SERVICES } from './services';
+export { EXPERTISE } from './expertise';
+export { SOCIAL_LINKS } from './socials';
+export { PROJECTS } from './projects';
+export { EXPERIENCE } from './experience';
+export { ACHIEVEMENTS } from './achievements';
+export { INDUSTRIES } from './industries';
+export { STATS } from './stats';
+export { FAQS } from './faqs';
