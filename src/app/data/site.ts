@@ -11,7 +11,7 @@ export const SITE: SiteProfile = {
     'I turn business signals into shipped fintech — lending, insurance and SaaS platforms, end-to-end.',
   summary:
     'Senior fullstack engineer with 5 years building production-grade fintech platforms across consumer lending, general insurance and life insurance. I own systems end-to-end: FastAPI and Node.js microservices, event-driven pipelines on Celery and RabbitMQ, and Terraform-managed AWS infrastructure — from loan origination to quote engines to real-time analytics.',
-  url: 'https://rushilshah.dev',
+  url: 'https://rushilshah23.github.io',
   email: 'rushilshah88@gmail.com',
   location: 'Mumbai, India · Remote worldwide',
   roles: [
