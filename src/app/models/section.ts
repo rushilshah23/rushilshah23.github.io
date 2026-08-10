@@ -11,6 +11,8 @@ export interface HeroContent {
   headline: string;
   /** Optional portion of the headline rendered in brand accent. */
   highlight: string;
+  /** Typewriter phrases cycling through the headline accent (backspace + retype). */
+  highlightPhrases: string[];
   /** Supporting value proposition paragraph (AEO-relevant). */
   subhead: string;
   /** Primary call-to-action. */

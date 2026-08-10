@@ -10,6 +10,12 @@ export const HERO: HeroContent = {
   eyebrow: 'All systems operational · Mumbai, IN',
   headline: 'I ship production systems end-to-end,',
   highlight: 'from fintech to energy.',
+  highlightPhrases: [
+    'from lending to energy.',
+    'from insurance to fintech.',
+    'from fintech to energy.',
+    'from banking to fintech.',
+  ],
   subhead:
     'Senior engineer — five years across lending, insurance, banking and energy: FastAPI and Node.js microservices, event-driven pipelines, Terraform-managed AWS, and GenAI tooling from LangChain workflows to agentic systems.',
   primaryCta: { label: 'Start a build', target: '/contact' },

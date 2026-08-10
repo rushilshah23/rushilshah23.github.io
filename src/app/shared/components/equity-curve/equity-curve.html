@@ -29,7 +29,18 @@
     <path class="equity-curve__line" [attr.d]="linePath()" />
 
     @for (m of milestones; track m.year; let i = $index) {
-      <g class="equity-curve__point" [style.animation-delay]="pointDelay(i)">
+      <g
+        class="equity-curve__point"
+        [class.equity-curve__point--active]="selected() === i"
+        [style.animation-delay]="pointDelay(i)"
+        role="button"
+        tabindex="0"
+        [attr.aria-expanded]="selected() === i"
+        [attr.aria-label]="m.year + ' — ' + m.detail"
+        (click)="toggle(i)"
+        (keydown.enter)="toggle(i)"
+        (keydown.space)="toggle(i)"
+      >
         <circle [attr.cx]="x(i)" [attr.cy]="y(m.value)" r="5" />
         <text
           class="equity-curve__year"
@@ -50,4 +61,15 @@
       </g>
     }
   </svg>
+
+  @if (selectedMilestone(); as m) {
+    <div
+      class="equity-curve__detail"
+      role="status"
+      [style.left]="detailLeft(selected()!)"
+    >
+      <span class="equity-curve__detail-year">{{ m.year }}</span>
+      <p class="equity-curve__detail-text">{{ m.detail }}</p>
+    </div>
+  }
 </div>

@@ -15,7 +15,8 @@
       </p>
 
       <h1 id="hero-heading" class="display hero__headline">
-        {{ hero.headline }} <span class="hero__highlight">{{ hero.highlight }}</span>
+        {{ hero.headline }}
+        <app-typewriter class="hero__typewriter" [words]="hero.highlightPhrases" />
       </h1>
 
       <p class="hero__roles">

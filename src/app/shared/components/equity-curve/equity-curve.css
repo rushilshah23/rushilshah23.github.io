@@ -3,9 +3,78 @@
    ========================================================================== */
 
 .equity-curve {
+  position: relative;
   width: 100%;
   max-width: 42rem;
   margin-inline: auto;
+}
+
+/* Interactive points — click/tap a milestone to expand its detail card. */
+.equity-curve__point {
+  cursor: pointer;
+  outline: none;
+}
+
+.equity-curve__point circle {
+  fill: var(--color-bg);
+  stroke: var(--color-up);
+  stroke-width: 2.5;
+  transition:
+    r var(--duration-fast) var(--ease-out),
+    stroke-width var(--duration-fast) var(--ease-out);
+}
+
+.equity-curve__point:hover circle,
+.equity-curve__point:focus-visible circle,
+.equity-curve__point--active circle {
+  r: 8;
+  stroke-width: 3.5;
+}
+
+.equity-curve__point:focus-visible .equity-curve__year {
+  fill: var(--color-brand);
+}
+
+/* Detail card revealed on click/tap */
+.equity-curve__detail {
+  position: absolute;
+  bottom: 3.4rem;
+  transform: translateX(-50%);
+  width: min(17rem, 78vw);
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-raised);
+  box-shadow: var(--shadow-lg);
+  animation: eq-card-in var(--duration-base) var(--ease-out);
+  z-index: 2;
+}
+
+.equity-curve__detail-year {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--font-body-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-up);
+  margin-bottom: var(--space-1);
+}
+
+.equity-curve__detail-text {
+  font-size: var(--font-body-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+}
+
+@keyframes eq-card-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .equity-curve svg {

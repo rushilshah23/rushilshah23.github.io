@@ -16,9 +16,10 @@ export const EXPERIENCE: Experience[] = [
       'Refactored a production FastAPI backend to production best practices, cutting technical debt and resolving long-standing issues across the Angular frontend — improving maintainability and shipping velocity.',
       'Managed architecture-level AWS infrastructure with Terraform across production, QA, sandbox and development environments.',
       'Configured API Gateway integrations and unblocked Lambda layer builds for AI model loading in GitHub Actions CI/CD pipelines.',
+      'Implemented a company-wide security shield with Akamai over the AWS estate — WAF, DDoS and edge policies managed as code with Terraform.',
       'Building GenAI tooling — LangChain pipelines and agentic workflows — alongside core platform work.',
     ],
-    tags: ['Energy', 'GenAI', 'FastAPI', 'Angular', 'Terraform', 'AWS'],
+    tags: ['Energy', 'GenAI', 'FastAPI', 'Angular', 'Terraform', 'AWS', 'Akamai'],
   },
   {
     company: 'Western Capital Advisors (Lending NBFC), Mumbai',

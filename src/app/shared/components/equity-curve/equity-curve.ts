@@ -13,6 +13,8 @@ export interface EquityMilestone {
   label: string;
   /** Normalized vertical position (0..1). */
   value: number;
+  /** One-liner revealed on click/tap. */
+  detail: string;
 }
 
 /**
@@ -33,11 +35,11 @@ export class EquityCurve implements OnInit {
   private readonly platformId = inject(PLATFORM_ID);
 
   protected readonly milestones: EquityMilestone[] = [
-    { year: '2020', label: 'IAHV intern', value: 0.1 },
-    { year: '2022', label: 'Datacurate', value: 0.3 },
-    { year: '2025', label: 'Lending NBFC', value: 0.62 },
-    { year: '2026', label: 'Senior engineer', value: 0.85 },
-    { year: 'NOW', label: '5+ yrs shipping', value: 1 },
+    { year: '2020', label: 'IAHV intern', value: 0.1, detail: 'Led a team of 12 building a Flutter + Node.js + Firebase watershed-management app for Art of Living across Maharashtra.' },
+    { year: '2022', label: 'Datacurate', value: 0.3, detail: 'Quote-to-policy systems for HDFC ERGO & Kotak Life — 8-day quotes cut to near-instant, OCR pipelines, ETL +50%.' },
+    { year: '2025', label: 'Lending NBFC', value: 0.62, detail: 'LOS–LMS integration at Western Capital Advisors — ₹200Cr loan book, 1,500+ employee-hours saved per month.' },
+    { year: '2026', label: 'Senior engineer', value: 0.85, detail: 'Platform & GenAI infrastructure at Go Digital (energy) — Terraform AWS, Akamai security shield, LangChain + agentic tooling.' },
+    { year: 'NOW', label: '5+ yrs shipping', value: 1, detail: 'Agentic AI research loop (Hermes) — nightly cost-aware backtests, every run archived, strongest setups curated.' },
   ];
 
   private readonly width = 640;
@@ -48,6 +50,13 @@ export class EquityCurve implements OnInit {
 
   /** True when the draw-on animation should run (browser, motion allowed). */
   protected readonly drawn = signal(false);
+
+  /** Index of the milestone currently expanded via click/tap, or null. */
+  protected readonly selected = signal<number | null>(null);
+
+  protected readonly selectedMilestone = computed(() =>
+    this.selected() !== null ? this.milestones[this.selected()!] : null,
+  );
 
   /** Horizontal chart-grid lines (theme-aware dashes). */
   protected readonly gridLines = computed(() => {
@@ -91,6 +100,17 @@ export class EquityCurve implements OnInit {
 
   protected pointDelay(i: number): string {
     return `${1 + i * 0.22}s`;
+  }
+
+  /** Toggle a milestone's detail card (tap again to close). */
+  protected toggle(i: number): void {
+    this.selected.update((v) => (v === i ? null : i));
+  }
+
+  /** Clamped horizontal position (%) for the detail card. */
+  protected detailLeft(i: number): string {
+    const pct = (this.x(i) / this.width) * 100;
+    return `${Math.min(86, Math.max(14, pct))}%`;
   }
 
   private prefersReducedMotion(): boolean {
