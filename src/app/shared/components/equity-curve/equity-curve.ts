@@ -1,4 +1,13 @@
-import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  computed,
+  inject,
+  signal,
+  ElementRef,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 
@@ -31,8 +40,9 @@ export interface EquityMilestone {
   templateUrl: './equity-curve.html',
   styleUrl: './equity-curve.css',
 })
-export class EquityCurve implements OnInit {
+export class EquityCurve implements OnInit, AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly el = inject(ElementRef);
 
   protected readonly milestones: EquityMilestone[] = [
     { year: '2020', label: 'IAHV intern', value: 0.1, detail: 'Led a team of 12 building a Flutter + Node.js + Firebase watershed-management app for Art of Living across Maharashtra.' },
@@ -54,6 +64,11 @@ export class EquityCurve implements OnInit {
   /** Index of the milestone currently expanded via click/tap, or null. */
   protected readonly selected = signal<number | null>(null);
 
+  /** Measured container width (px) — 0 until the browser lays out. */
+  private readonly containerWidth = signal(0);
+
+  private resizeObserver: ResizeObserver | null = null;
+
   protected readonly selectedMilestone = computed(() =>
     this.selected() !== null ? this.milestones[this.selected()!] : null,
   );
@@ -70,6 +85,29 @@ export class EquityCurve implements OnInit {
     this.drawn.set(
       isPlatformBrowser(this.platformId) && !this.prefersReducedMotion(),
     );
+  }
+
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.measureWidth();
+    if (typeof ResizeObserver !== 'undefined') {
+      const host = this.el.nativeElement as HTMLElement;
+      const card = host.querySelector('.equity-curve');
+      if (card) {
+        this.resizeObserver = new ResizeObserver(() => this.measureWidth());
+        this.resizeObserver.observe(card);
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.resizeObserver) this.resizeObserver.disconnect();
+  }
+
+  private measureWidth(): void {
+    const host = this.el.nativeElement as HTMLElement;
+    const card = host.querySelector('.equity-curve') as HTMLElement | null;
+    this.containerWidth.set(card ? card.clientWidth : 0);
   }
 
   protected x(i: number): number {
@@ -107,10 +145,24 @@ export class EquityCurve implements OnInit {
     this.selected.update((v) => (v === i ? null : i));
   }
 
-  /** Clamped horizontal position (%) for the detail card. */
+  /**
+   * Clamped horizontal position (%) for the detail card. Uses the measured
+   * container width so the card stays fully inside the chart even on small
+   * screens (the SVG's 640-unit space ≠ CSS pixels). Falls back to the SVG
+   * ratio before the browser measures.
+   */
   protected detailLeft(i: number): string {
-    const pct = (this.x(i) / this.width) * 100;
-    return `${Math.min(86, Math.max(14, pct))}%`;
+    const container = this.containerWidth();
+    if (container <= 0) {
+      const pct = (this.x(i) / this.width) * 100;
+      return `${Math.min(86, Math.max(14, pct))}%`;
+    }
+    const cardWidth = Math.min(272, container * 0.78);
+    const half = cardWidth / 2;
+    const margin = 12;
+    const center = (this.x(i) / this.width) * container;
+    const clamped = Math.min(Math.max(center, half + margin), container - half - margin);
+    return `${(clamped / container) * 100}%`;
   }
 
   private prefersReducedMotion(): boolean {
