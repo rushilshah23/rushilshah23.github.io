@@ -332,7 +332,8 @@
 /* Services + projects preview                                         */
 /* ------------------------------------------------------------------ */
 .services-preview,
-.projects-preview {
+.projects-preview,
+.experience {
   padding-block: var(--space-8);
 }
 

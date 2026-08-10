@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core';
 import {
+  EXPERIENCE,
   EXPERTISE,
   HERO,
   INDUSTRIES,
@@ -16,6 +17,7 @@ import { ProjectCard } from '../../shared/components/project-card/project-card';
 import { ServiceCard } from '../../shared/components/service-card/service-card';
 import { SectionHeader } from '../../shared/components/section-header/section-header';
 import { TickerTape } from '../../shared/components/ticker-tape/ticker-tape';
+import { Timeline } from '../../shared/components/timeline/timeline';
 import { TypeWriter } from '../../shared/components/typewriter/typewriter';
 import { RevealDirective } from '../../shared/directives/reveal/reveal.directive';
 
@@ -29,6 +31,7 @@ import { RevealDirective } from '../../shared/directives/reveal/reveal.directive
     TypeWriter,
     TickerTape,
     EquityCurve,
+    Timeline,
     RevealDirective,
   ],
   templateUrl: './home.html',
@@ -41,6 +44,7 @@ export class Home implements OnInit {
   protected readonly site = SITE;
   protected readonly industries = INDUSTRIES;
   protected readonly stats = STATS;
+  protected readonly experience = EXPERIENCE;
   protected readonly featuredServices = SERVICES.slice(0, 3);
   protected readonly featuredProjects = PROJECTS.filter((p) => p.featured);
 

@@ -38,7 +38,7 @@ export const SECTIONS: SectionsIndex = {
     meta: {
       title: `Projects — ${SITE.name}`,
       description:
-        'Selected work: a GST-invoice processing SaaS, an authentication microservice, an NSE breakout scanner, an ITGC compliance app, and more.',
+        'Selected work: a GST-invoice processing SaaS, an authentication microservice, an NSE breakout scanner with agentic research, and more.',
       path: '/projects',
     },
   },

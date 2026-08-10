@@ -23,8 +23,8 @@ export const PROJECTS: Project[] = [
     id: 'breakout-scanner',
     title: 'NSE Breakout Scanner & Backtesting Engine',
     summary:
-      'Personal trading toolkit: an automated scanner that surfaces NSE breakout signals into structured CSVs, paired with a cost-aware backtesting engine (STT, brokerage, slippage) that validates BTST and swing setups before capital is deployed.',
-    tags: ['Python', 'Data Engineering', 'Backtesting', 'Automation'],
+      'Personal trading toolkit: an automated scanner that surfaces NSE breakout signals into structured CSVs, paired with a cost-aware backtesting engine (STT, brokerage, slippage) that validates BTST and swing setups before capital is deployed. An agentic AI layer (Hermes) now runs the research loop — nightly cost-aware walk-forward runs across strategy configurations, archiving every run and promoting the strongest setups into a curated best-of set.',
+    tags: ['Python', 'Data Engineering', 'Backtesting', 'Agentic AI', 'Hermes'],
     media: '/projects/scanner_candles.svg',
     mediaAlt: 'Candlestick chart showing rising price action and a breakout signal marker',
     year: '2025',
@@ -42,17 +42,6 @@ export const PROJECTS: Project[] = [
     codeUrl: 'https://github.com/rushilshah23/Authentication-system',
     year: '2025',
     featured: true,
-  },
-  {
-    id: 'itgc',
-    title: 'ITGC — IT General Controls App',
-    summary:
-      'Internal application that enforces Information Technology General Controls for audit readiness — mapping controls to systems and evidence, with review and sign-off workflows used in real compliance cycles.',
-    tags: ['Full-Stack', 'Controls', 'Compliance', 'Workflow'],
-    media: '/projects/itgc.svg',
-    mediaAlt: 'ITGC controls dashboard illustration',
-    codeUrl: 'https://github.com/rushilshah23/ITGC',
-    year: '2026',
   },
   {
     id: 'examinator',
