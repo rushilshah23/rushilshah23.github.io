@@ -102,6 +102,12 @@
   text-transform: uppercase;
 }
 
+.hero__badge-prompt {
+  font-size: var(--font-body-xs);
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
 .hero__dot {
   width: 0.5rem;
   height: 0.5rem;
@@ -122,9 +128,12 @@
 }
 
 /* Typewriter accent in the headline — inherits the display size, its own
-   gradient + caret come from the component. */
+   gradient + caret come from the component. min-width reserves the longest
+   word ("insurance") so the headline never re-wraps mid-cycle. */
 .hero__typewriter {
+  display: inline-flex;
   white-space: nowrap;
+  min-width: 10ch;
 }
 
 .hero__roles {
