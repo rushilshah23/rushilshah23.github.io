@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
     title: 'GSTMind — GST Invoice Processing SaaS',
     summary:
       'Full-stack SaaS that automates GST invoice processing, cutting manual accounting work by 90% for SMEs and enterprises. FastAPI microservices, a model-agnostic AI extraction worker on Celery, and a Jenkins CI/CD pipeline shipping Docker images to EC2 behind Nginx.',
-    tags: ['FastAPI', 'Celery', 'Microservices', 'AWS', 'Jenkins'],
+    tags: ['FastAPI', 'Celery', 'Microservices', 'AI', 'AWS', 'Jenkins'],
     media: '/projects/gstmind.svg',
     mediaAlt: 'GST invoice processing pipeline diagram',
     projectUrl: 'https://gstmind.qzz.io',
@@ -44,6 +44,17 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
+    id: 'itgc',
+    title: 'ITGC — IT General Controls App',
+    summary:
+      'Internal application that enforces Information Technology General Controls for audit readiness — mapping controls to systems and evidence, with review and sign-off workflows used in real compliance cycles.',
+    tags: ['Full-Stack', 'Controls', 'Compliance', 'Workflow'],
+    media: '/projects/itgc.svg',
+    mediaAlt: 'ITGC controls dashboard illustration',
+    codeUrl: 'https://github.com/rushilshah23/ITGC',
+    year: '2026',
+  },
+  {
     id: 'examinator',
     title: 'Examinator — AI Exam Proctoring Platform',
     summary:
@@ -64,17 +75,6 @@ export const PROJECTS: Project[] = [
     mediaAlt: 'Multiplayer Tic Tac Toe game board',
     codeUrl: 'https://github.com/rushilshah23/Tic_Tac_Toe_MicroService_Architecture',
     year: '2024',
-  },
-  {
-    id: 'meet-manager',
-    title: 'Meet Manager API',
-    summary:
-      'Backend scheduling service that books meetings into custom slots with closest-time rounding — a clean demonstration of datetime handling and MongoDB at scale.',
-    tags: ['Node.js', 'MongoDB', 'REST API'],
-    media: '/projects/meeting_scheduler.svg',
-    mediaAlt: 'Meeting scheduler calendar',
-    codeUrl: 'https://github.com/rushilshah23/meet_manager_api',
-    year: '2023',
   },
   {
     id: 'portfolio-angular',

@@ -22,7 +22,7 @@ export class About implements OnInit {
   protected readonly facts = [
     { label: 'Based in', value: 'Mumbai, India' },
     { label: 'Experience', value: SITE.experience },
-    { label: 'Focus', value: 'Fintech · Fullstack · Cloud' },
+    { label: 'Focus', value: 'Full-Stack · Platform · GenAI' },
     { label: 'Availability', value: 'Freelance & fractional' },
   ];
 

@@ -7,13 +7,13 @@ import { Service } from '../models';
 export const SERVICES: Service[] = [
   {
     id: 'generative-ai',
-    title: 'AI-Powered Document Processing',
+    title: 'AI Agents & Document Intelligence',
     summary:
-      'Invoice and document intelligence that turns PDFs, scans and spreadsheets into structured, usable data — model-agnostic extraction pipelines, grounded and production-ready.',
+      'GenAI that does real work: LangChain pipelines, RAG over your documents, and agentic workflows that automate invoicing, parsing and back-office processes — model-agnostic and production-ready.',
     deliverables: [
-      'AI-powered invoice & document processing',
-      'Model-agnostic extraction pipelines',
-      'LLM workflow automation',
+      'AI agents & agentic workflow automation',
+      'LangChain pipelines & RAG systems',
+      'Invoice & document processing with LLMs',
       'AI integration on AWS (Lambda layers)',
     ],
     ctaTarget: '/contact',

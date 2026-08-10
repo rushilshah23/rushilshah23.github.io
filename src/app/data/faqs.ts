@@ -14,7 +14,7 @@ export const FAQS: Faq[] = [
   {
     question: 'Which industries have you worked in?',
     answer:
-      'I have shipped production software in consumer lending, insurance and fintech SaaS — including an end-to-end loan origination and management integration for a lending NBFC (INR 200 crore loan book), quote engines and data pipelines for two of India’s largest insurers, and a GST-invoice processing platform.',
+      'I have shipped production software in consumer lending, insurance, fintech SaaS and — currently — the energy sector: an end-to-end loan origination and management integration for a lending NBFC (INR 200 crore loan book), quote engines and data pipelines for two of India’s largest insurers, a GST-invoice processing platform, and AI model deployment infrastructure for an energy company.',
   },
   {
     question: 'How much does a custom web application cost?',

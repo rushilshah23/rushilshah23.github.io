@@ -20,7 +20,7 @@ export const SECTIONS: SectionsIndex = {
     meta: {
       title: `Services — ${SITE.name}`,
       description:
-        'Freelance services: full-stack fintech development, microservices & API design, cloud & DevOps, and fractional engineering leadership.',
+        'Freelance services: full-stack development, AI & GenAI automation, microservices & API design, cloud & DevOps, and fractional engineering leadership.',
       path: '/services',
     },
   },
@@ -29,7 +29,7 @@ export const SECTIONS: SectionsIndex = {
     meta: {
       title: `Expertise — ${SITE.name}`,
       description:
-        'Production stack across frontend, backend, data & messaging, and cloud & DevOps: Angular, Next.js, Python, FastAPI, Golang, AWS, Terraform, Kubernetes, Celery and more.',
+        'Production stack across frontend, backend, data & messaging, cloud & DevOps, and AI & GenAI: Angular, Next.js, Python, FastAPI, Golang, AWS, Terraform, Kubernetes, Celery, LangChain and more.',
       path: '/expertise',
     },
   },
@@ -38,7 +38,7 @@ export const SECTIONS: SectionsIndex = {
     meta: {
       title: `Projects — ${SITE.name}`,
       description:
-        'Selected work: a GST-invoice processing SaaS, an authentication microservice, an NSE breakout scanner, and more.',
+        'Selected work: a GST-invoice processing SaaS, an authentication microservice, an NSE breakout scanner, an ITGC compliance app, and more.',
       path: '/projects',
     },
   },
@@ -46,7 +46,7 @@ export const SECTIONS: SectionsIndex = {
     nav: { path: '/about', label: 'About' },
     meta: {
       title: `About — ${SITE.name}`,
-      description: `5+ years shipping production software across consumer lending, insurance and fintech SaaS. Learn about ${SITE.name}, a ${SITE.title} based in Mumbai, India.`,
+      description: `5+ years shipping production software across consumer lending, insurance, fintech SaaS and energy. Learn about ${SITE.name}, a ${SITE.title} based in Mumbai, India.`,
       path: '/about',
     },
   },

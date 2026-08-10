@@ -43,6 +43,7 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:description', content: metaData.description });
     this.meta.updateTag({ property: 'og:url', content: url });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ property: 'og:locale', content: 'en_IN' });
     this.meta.updateTag({ property: 'og:image', content: `${SITE.url}${OG_IMAGE}` });
     this.meta.updateTag({ property: 'og:site_name', content: SITE.name });
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
@@ -95,20 +96,27 @@ export class SeoService {
       description: SITE.tagline,
       url: SITE.url,
       email: `mailto:${SITE.email}`,
+      image: `${SITE.url}/assets/profile.webp`,
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Mumbai',
         addressCountry: 'IN',
       },
       knowsAbout: [
-        'Fullstack Development',
-        'Fintech',
-        'Consumer Lending',
-        'Insurance',
-        'Microservices',
-        'Data Engineering',
+        'Full-Stack Development',
+        'Platform Engineering',
         'DevOps',
         'Cloud Architecture',
+        'Fintech',
+        'Consumer Lending',
+        'Banking',
+        'Insurance',
+        'Energy',
+        'Microservices',
+        'Data Engineering',
+        'GenAI',
+        'LangChain',
+        'AI Agents',
       ],
       sameAs,
     };

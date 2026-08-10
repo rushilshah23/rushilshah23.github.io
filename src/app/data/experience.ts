@@ -11,13 +11,14 @@ export const EXPERIENCE: Experience[] = [
     period: 'Apr 2026 — Present',
     current: true,
     summary:
-      'Refactoring and hardening production fintech systems — FastAPI backends and an Angular frontend, with Terraform-managed AWS across all environments.',
+      'Hardening and shipping platform and GenAI infrastructure for the energy sector — FastAPI backends, an Angular frontend, Terraform-managed AWS across all environments, and AI model deployment in CI/CD.',
     highlights: [
       'Refactored a production FastAPI backend to production best practices, cutting technical debt and resolving long-standing issues across the Angular frontend — improving maintainability and shipping velocity.',
       'Managed architecture-level AWS infrastructure with Terraform across production, QA, sandbox and development environments.',
       'Configured API Gateway integrations and unblocked Lambda layer builds for AI model loading in GitHub Actions CI/CD pipelines.',
+      'Building GenAI tooling — LangChain pipelines and agentic workflows — alongside core platform work.',
     ],
-    tags: ['Fintech', 'FastAPI', 'Angular', 'Terraform', 'AWS'],
+    tags: ['Energy', 'GenAI', 'FastAPI', 'Angular', 'Terraform', 'AWS'],
   },
   {
     company: 'Western Capital Advisors (Lending NBFC), Mumbai',

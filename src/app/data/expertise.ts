@@ -54,4 +54,15 @@ export const EXPERTISE: SkillDomain[] = [
       { name: 'GitHub', icon: '/skills/github.svg' },
     ],
   },
+  {
+    title: 'AI & GenAI',
+    skills: [
+      { name: 'LangChain', icon: '/skills/langchain.svg' },
+      { name: 'OpenAI', icon: '/skills/openai.svg' },
+      { name: 'RAG Pipelines', icon: '/skills/rag.svg' },
+      { name: 'Prompt Engineering', icon: '/skills/prompt.svg' },
+      { name: 'AI Agents', icon: '/skills/langchain.svg' },
+      { name: 'LLM Applications', icon: '/skills/openai.svg' },
+    ],
+  },
 ];

@@ -8,15 +8,15 @@ import { SITE } from './site';
  */
 export const HERO: HeroContent = {
   eyebrow: 'All systems operational · Mumbai, IN',
-  headline: 'I ship fintech platforms end-to-end,',
-  highlight: 'from signal to production.',
+  headline: 'I ship production systems end-to-end,',
+  highlight: 'from fintech to energy.',
   subhead:
-    'Senior fullstack engineer — five years building lending, insurance and SaaS systems that move money. FastAPI and Node.js microservices, event-driven pipelines, Terraform-managed AWS, and the trading tooling in between.',
+    'Senior engineer — five years across lending, insurance, banking and energy: FastAPI and Node.js microservices, event-driven pipelines, Terraform-managed AWS, and GenAI tooling from LangChain workflows to agentic systems.',
   primaryCta: { label: 'Start a build', target: '/contact' },
   secondaryCta: { label: 'See the work', target: '/projects' },
   highlights: [
     '5+ years in production',
-    'Lending · Insurance · SaaS',
-    'FastAPI · AWS · Angular',
+    'Lending · Insurance · Banking · Energy',
+    'Full-Stack · Platform & DevOps · GenAI',
   ],
 };

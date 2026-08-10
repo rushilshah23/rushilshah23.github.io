@@ -30,6 +30,7 @@
     rgb(108 99 242 / 0.28) 0%,
     transparent 65%
   );
+  animation: glow-drift-a 16s var(--ease-out) infinite alternate;
 }
 
 .hero__glow--two {
@@ -42,6 +43,20 @@
     rgb(34 211 238 / 0.18) 0%,
     transparent 65%
   );
+  animation: glow-drift-b 20s var(--ease-out) infinite alternate;
+}
+
+/* Slow ambient drift for the hero glows — GPU-friendly transforms only. */
+@keyframes glow-drift-a {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4rem, 2.5rem, 0) scale(1.12); }
+  100% { transform: translate3d(-2rem, 4rem, 0) scale(0.95); }
+}
+
+@keyframes glow-drift-b {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-3.5rem, -2rem, 0) scale(1.1); }
+  100% { transform: translate3d(2.5rem, -3.5rem, 0) scale(0.92); }
 }
 
 .hero__grid {
@@ -108,9 +123,17 @@
 
 .hero__highlight {
   background: var(--gradient-soft);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradient-shift 8s var(--ease-out) infinite alternate;
+}
+
+/* Animated gradient sweep on the hero accent text. */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .hero__roles {
@@ -363,6 +386,13 @@
   );
   filter: blur(60px);
   pointer-events: none;
+  animation: glow-breathe 9s var(--ease-out) infinite alternate;
+}
+
+/* Gentle breathing on the CTA band glow. */
+@keyframes glow-breathe {
+  0% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1.15); }
 }
 
 .cta-band__title {
@@ -409,6 +439,12 @@
   }
   .hero__grid {
     display: none;
+  }
+  .hero__glow--one,
+  .hero__glow--two,
+  .hero__highlight,
+  .cta-band__glow {
+    animation: none;
   }
 }
 

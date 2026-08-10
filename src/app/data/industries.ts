@@ -7,9 +7,9 @@ import { Industry } from '../models';
  */
 export const INDUSTRIES: Industry[] = [
   {
-    name: 'Lending & NBFC',
+    name: 'Banking & Lending',
     description:
-      'Consumer lending platforms — loan origination, management and reconciliation for an Indian NBFC.',
+      'Consumer lending platforms — loan origination, management and reconciliation for an Indian lending NBFC.',
     points: [
       'End-to-end LOS–LMS integration supporting an INR 200 crore loan book',
       'Event-driven payment reconciliation via Razorpay webhooks on AWS Lambda',
@@ -34,6 +34,16 @@ export const INDUSTRIES: Industry[] = [
       'FastAPI microservices with Celery-powered AI workers',
       'Jenkins CI/CD shipping Docker images to EC2 behind Nginx',
       'Model-agnostic data extraction — API-based or self-hosted models',
+    ],
+  },
+  {
+    name: 'Energy & Renewables',
+    description:
+      'Platform and GenAI infrastructure for the energy sector — hardened backends, Terraform-managed AWS and AI model deployment in CI/CD.',
+    points: [
+      'Production FastAPI + Angular hardening for an energy company',
+      'Terraform-managed AWS across production, QA, sandbox and development',
+      'API Gateway + Lambda layers for AI model loading in GitHub Actions',
     ],
   },
   {
