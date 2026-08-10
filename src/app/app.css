@@ -145,12 +145,12 @@
   border: var(--border-thin) solid var(--color-border-strong);
   background: transparent;
   cursor: pointer;
-  gap: 3px;
+  gap: 2px;
 }
 
 .menu-toggle__bar {
   display: block;
-  width: 1.1rem;
+  width: 1rem;
   height: 2px;
   border-radius: var(--radius-full);
   background: var(--color-text-muted);
