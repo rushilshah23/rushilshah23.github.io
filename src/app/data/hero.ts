@@ -9,11 +9,11 @@ import { SITE } from './site';
 export const HERO: HeroContent = {
   eyebrow: 'All systems operational · Mumbai, IN',
   headline: 'I ship production systems end-to-end,',
-  highlight: 'from fintech to energy.',
+  highlight: 'fintech',
   highlightPhrases: [
-    'fintech to energy.',
-    'insurance to fintech.',
-    'energy to fintech.',
+    'fintech',
+    'insurance',
+    'energy',
   ],
   subhead:
     'Senior engineer — five years across lending, insurance, banking and energy: FastAPI and Node.js microservices, event-driven pipelines, Terraform-managed AWS, and GenAI tooling from LangChain workflows to agentic systems.',
