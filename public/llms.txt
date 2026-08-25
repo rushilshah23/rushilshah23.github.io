@@ -1,0 +1,31 @@
+# Rushil Shah
+
+> Senior Engineer in Mumbai shipping full-stack platforms, cloud infrastructure and GenAI systems across lending, insurance, fintech SaaS and energy. 5+ years of production systems: FastAPI and Node.js microservices, event-driven pipelines (Celery, RabbitMQ), Terraform-managed AWS, and LangChain/agentic AI tooling.
+
+## Pages
+
+- [Home](https://rushilshah23.github.io/): overview, stats and featured work
+- [Services](https://rushilshah23.github.io/services/): freelance engineering services with engagement FAQs
+- [Expertise](https://rushilshah23.github.io/expertise/): capability-grouped technical stack
+- [Projects](https://rushilshah23.github.io/projects/): case studies — GST invoice SaaS, NSE breakout scanner with agentic research loop, auth microservice on Kubernetes
+- [About](https://rushilshah23.github.io/about/): career narrative across lending, insurance and energy
+- [Contact](https://rushilshah23.github.io/contact/): hire inquiries; discovery call, written scope, fixed quote
+- [Resume (PDF)](https://rushilshah23.github.io/assets/resume.pdf): two-page resume, source of truth for experience claims
+
+## Facts
+
+- Name: Rushil Shah
+- Title: Senior Engineer
+- Location: Mumbai, India · Remote worldwide
+- Current domain: Go Digital (energy sector) — platform + GenAI infrastructure: Terraform-managed AWS estate, Akamai security shield, API Gateway + Lambda AI-layer CI builds
+- Previous domains: consumer lending (NBFC, ₹200Cr book), general insurance (HDFC ERGO), life insurance (Kotak Life), fintech SaaS
+- Email: rushilshah88@gmail.com
+- GitHub: https://github.com/rushilshah23
+- LinkedIn: https://www.linkedin.com/in/rushilshah88
+- Open to: new builds, freelance, consulting and fractional engineering leadership
+
+## Highlights
+
+- GSTMind: GST invoice processing SaaS cutting manual accounting work ~90% via FastAPI microservices and an AI extraction worker on Celery
+- NSE Breakout Scanner: automated signal scanner plus cost-aware backtesting engine (STT, brokerage, slippage) with an agentic AI (Hermes) nightly walk-forward research loop
+- Auth microservice: FastAPI JWT authentication service (social logins) deployed on Kubernetes with autoscaling and PostgreSQL HA

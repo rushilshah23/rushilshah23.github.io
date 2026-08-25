@@ -19,5 +19,6 @@ export class Projects implements OnInit {
 
   ngOnInit(): void {
     this.seo.applySection('projects');
+    this.seo.injectJsonLd('json-ld-projects', this.seo.projectsSchema());
   }
 }

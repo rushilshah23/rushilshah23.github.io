@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { FAQS, SECTIONS, SERVICES, SITE } from '../../data';
+import { FAQS, PROJECTS, SECTIONS, SERVICES, SITE } from '../../data';
 import { Faq, PageMeta } from '../../models';
 
 export interface JsonLdNode {
@@ -52,9 +52,15 @@ export class SeoService {
     this.meta.updateTag({ name: 'twitter:image', content: `${SITE.url}${OG_IMAGE}` });
   }
 
-  /** Build the absolute canonical URL for a route path. */
+  /**
+   * Build the absolute canonical URL for a route path. GitHub Pages serves
+   * directory routes at `/<path>/` (a 301 from the bare path), so the
+   * canonical form carries the trailing slash — matching the sitemap and
+   * the actually-served URL.
+   */
   private canonicalUrl(path: string): string {
-    const normalized = path === '/' ? path : path.replace(/\/+$/, '');
+    const normalized =
+      path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`;
     return `${SITE.url}${normalized}`;
   }
 
@@ -151,6 +157,31 @@ export class SeoService {
         name: service.title,
         description: service.summary,
       })),
+    };
+  }
+
+  /**
+   * SoftwareApplication (Code) schema for the portfolio projects — gives
+   * answer engines concrete artifacts with tech stacks and links.
+   */
+  projectsSchema(): JsonLdNode {
+    const projects = PROJECTS.map((project) => ({
+      '@type': 'SoftwareApplication',
+      name: project.title,
+      description: project.summary,
+      applicationCategory: 'DeveloperApplication',
+      datePublished: project.year,
+      keywords: project.tags.join(', '),
+      author: { '@type': 'Person', name: SITE.name },
+      url: project.projectUrl ?? this.canonicalUrl('/projects'),
+      ...(project.codeUrl ? { codeRepository: project.codeUrl } : {}),
+    }));
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `Projects — ${SITE.name}`,
+      url: this.canonicalUrl('/projects'),
+      hasPart: projects,
     };
   }
 

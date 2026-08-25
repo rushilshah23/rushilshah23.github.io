@@ -61,6 +61,7 @@ export class Home implements OnInit {
     this.seo.applyPageMeta(SECTIONS['home'].meta);
     this.seo.injectJsonLd('json-ld-person', this.seo.personSchema());
     this.seo.injectJsonLd('json-ld-website', this.seo.websiteSchema());
+    this.seo.injectJsonLd('json-ld-service', this.seo.professionalServiceSchema());
     this.seo.injectJsonLd('json-ld-home-breadcrumb', this.seo.breadcrumbSchema([]));
   }
 }
