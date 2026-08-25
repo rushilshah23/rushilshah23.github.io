@@ -828,6 +828,12 @@ app-equity-curve {
     text-align: center;
   }
 
+  /* Center the cycling sector word INSIDE its reserved min-width box so
+     it sits on the line's visual centre, not left-anchored in the slack. */
+  .hero__typewriter {
+    justify-content: center;
+  }
+
   .hero__inner {
     grid-template-columns: minmax(0, 1fr);
   }
