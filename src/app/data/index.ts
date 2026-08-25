@@ -10,3 +10,4 @@ export { ACHIEVEMENTS } from './achievements';
 export { INDUSTRIES } from './industries';
 export { STATS } from './stats';
 export { FAQS } from './faqs';
+export { AUDIENCE_TRACKS } from './audience-tracks';

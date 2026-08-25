@@ -19,3 +19,4 @@ export type {
   CommandGroup,
   PaletteCommand,
 } from './command';
+export type { AudienceTrack } from './audience-track';

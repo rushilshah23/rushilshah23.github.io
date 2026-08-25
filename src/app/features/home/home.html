@@ -186,23 +186,100 @@
   </div>
 </section>
 
+<!-- ======================= Founder's desk ======================= -->
+<section class="founders-desk container" aria-labelledby="founders-heading" appReveal>
+  <div class="founders-desk__inner">
+    <div class="founders-desk__copy">
+      <p class="founders-desk__eyebrow mono">FOUNDERS · DESK</p>
+      <h2 id="founders-heading" class="h2 founders-desk__title">
+        Building something from zero?
+      </h2>
+      <p class="founders-desk__lead">
+        Most agencies ship a demo and disappear. I work like a technical
+        co-founder: architecture you won't have to rewrite, an MVP in weeks —
+        not quarters — and honest advice about what <em>not</em> to build.
+        Fractional CTO when you need leadership, contract build when you need
+        shipping.
+      </p>
+      <ul class="founders-desk__proof">
+        <li>
+          <span class="mono founders-desk__code">0→1</span>
+          MVPs live in 4–8 weeks — fixed scope, working software every 1–2 weeks
+        </li>
+        <li>
+          <span class="mono founders-desk__code">CTO</span>
+          Architecture, roadmap, hiring bar and delivery — without full-time headcount
+        </li>
+        <li>
+          <span class="mono founders-desk__code">AI</span>
+          LangChain, RAG and agentic automation where they actually pay off
+        </li>
+        <li>
+          <span class="mono founders-desk__code">OPS</span>
+          AWS + Terraform infra that scales after the demo, not just for it
+        </li>
+      </ul>
+      <div class="founders-desk__actions">
+        <a class="btn btn--primary btn--lg" routerLink="/contact">Have an idea? Let's connect</a>
+        <a class="btn btn--ghost btn--lg" routerLink="/services">How engagements work</a>
+      </div>
+    </div>
+
+    <aside class="founders-desk__panel" aria-label="Engagement model">
+      <p class="founders-desk__panel-title mono">$ rushil --engage</p>
+      <div class="founders-desk__term">
+        <p><span class="founders-desk__key">mode</span> = fractional-cto | contract-build</p>
+        <p><span class="founders-desk__key">first_call</span> = free · 20 min · no pitch deck needed</p>
+        <p><span class="founders-desk__key">scope</span> = written, fixed quote, milestones</p>
+        <p><span class="founders-desk__key">cadence</span> = demo every 1–2 weeks</p>
+        <p><span class="founders-desk__key">after_launch</span> = support &amp; iterate</p>
+        <p class="founders-desk__cursor-line">
+          <span aria-hidden="true">&gt;</span> ready_when_you_are<span class="founders-desk__cursor" aria-hidden="true"></span>
+        </p>
+      </div>
+    </aside>
+  </div>
+</section>
+
 <!-- ======================= CTA band ======================= -->
 <section class="cta-band container" aria-labelledby="cta-heading" appReveal>
   <div class="cta-band__inner">
     <div class="cta-band__glow" aria-hidden="true"></div>
     <p class="cta-band__status mono">
       <span class="cta-band__tick" aria-hidden="true">▲</span>
-      signal: strong
+      signal dispatch — pick your track
     </p>
     <h2 id="cta-heading" class="h2 cta-band__title">
-      Have a signal that needs shipping?
+      One engineer. Two ways to work with me.
     </h2>
-    <p class="cta-band__text">
-      From first call to production — written scope, fixed quote, no surprises.
-    </p>
-    <div class="cta-band__actions">
-      <a class="btn btn--primary btn--lg" routerLink="/contact">Start the conversation</a>
-      <a class="btn btn--ghost btn--lg" href="mailto:{{ site.email }}">Email me directly</a>
+
+    <div class="cta-band__tracks">
+      @for (track of audienceTracks; track track.id) {
+        <article class="order-ticket" [attr.data-track]="track.id">
+          <header class="order-ticket__head">
+            <span class="mono order-ticket__ticker">{{ track.ticker }}</span>
+            <span class="order-ticket__title">{{ track.title }}</span>
+          </header>
+          <p class="order-ticket__who">{{ track.who }}</p>
+          <ul class="order-ticket__points">
+            @for (point of track.points; track point) {
+              <li>{{ point }}</li>
+            }
+          </ul>
+          <div class="order-ticket__actions">
+            <a class="btn btn--primary" routerLink="{{ track.ctaTarget }}">{{ track.ctaLabel }}</a>
+            @if (track.altLabel; as altLabel) {
+              <a
+                class="btn btn--ghost"
+                href="{{ track.altHref }}"
+                [attr.target]="$any(track.altHref)?.startsWith('http') ? '_blank' : null"
+                [attr.rel]="$any(track.altHref)?.startsWith('http') ? 'noopener' : null"
+                >{{ altLabel }}</a
+              >
+            }
+          </div>
+        </article>
+      }
     </div>
   </div>
 </section>

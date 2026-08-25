@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core';
 import {
+  AUDIENCE_TRACKS,
   EXPERIENCE,
   EXPERTISE,
   HERO,
@@ -45,6 +46,7 @@ export class Home implements OnInit {
   protected readonly industries = INDUSTRIES;
   protected readonly stats = STATS;
   protected readonly experience = EXPERIENCE;
+  protected readonly audienceTracks = AUDIENCE_TRACKS;
   protected readonly featuredServices = SERVICES.slice(0, 3);
   protected readonly featuredProjects = PROJECTS.filter((p) => p.featured);
 
