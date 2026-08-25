@@ -1,0 +1,88 @@
+@if (open()) {
+  <div class="palette" role="presentation" (click)="onBackdrop($event)">
+    <div
+      #dialogEl
+      class="palette__panel"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Command palette"
+    >
+      <!-- Prompt line -->
+      <div class="palette__prompt">
+        <span class="palette__user" aria-hidden="true">rushil@mumbai</span>
+        <span class="palette__colon" aria-hidden="true">:</span>
+        <span class="palette__tilde" aria-hidden="true">~</span>
+        <span class="palette__dollar" aria-hidden="true">$</span>
+        <input
+          #paletteInput
+          id="palette-input"
+          class="palette__input"
+          type="text"
+          role="combobox"
+          aria-expanded="true"
+          aria-controls="palette-listbox"
+          aria-label="Search commands"
+          aria-autocomplete="list"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="type a command…"
+          [value]="query()"
+          (input)="onQueryInput($event)"
+        />
+        <button
+          class="palette__close mono"
+          type="button"
+          aria-label="Close command palette"
+          (click)="close()"
+        >
+          esc
+        </button>
+      </div>
+
+      <!-- Command list -->
+      <div
+        #listEl
+        id="palette-listbox"
+        class="palette__list"
+        role="listbox"
+        aria-label="Commands"
+        [attr.aria-activedescendant]="activeDescendant()"
+      >
+        @for (group of grouped(); track group.label) {
+          <div class="palette__group">
+            <p class="palette__group-label mono" aria-hidden="true">{{ group.label }}</p>
+            @for (cmd of group.items; track cmd.id) {
+              <button
+                class="palette__row"
+                type="button"
+                tabindex="-1"
+                role="option"
+                [id]="'palette-opt-' + cmd.id"
+                [class.palette__row--active]="isActive(cmd)"
+                [attr.aria-selected]="isActive(cmd)"
+                (click)="run(cmd)"
+                (mousemove)="setActive(globalIndex(cmd))"
+              >
+                <span class="mono palette__ticker" aria-hidden="true">{{ cmd.ticker }}</span>
+                <span class="palette__label">{{ cmd.label }}</span>
+                @if (lastRunId() === cmd.id) {
+                  <span class="mono palette__copied" aria-live="polite">copied ✓</span>
+                }
+                <span class="mono palette__hint" aria-hidden="true">{{ cmd.hint }}</span>
+              </button>
+            }
+          </div>
+        } @empty {
+          <p class="palette__empty mono" role="status">no match — press esc</p>
+          <p class="palette__empty-hint">Try “projects”, “resume”, “theme”, “github”…</p>
+        }
+
+        <!-- Status bar -->
+        <div class="palette__status mono" aria-hidden="true">
+          <span>↑↓ move · ↵ run · esc close</span>
+          <span>{{ filtered().length }} cmds</span>
+        </div>
+      </div>
+    </div>
+  </div>
+}

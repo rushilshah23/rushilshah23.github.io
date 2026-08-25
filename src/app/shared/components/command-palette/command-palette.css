@@ -1,0 +1,273 @@
+/* CommandPalette — trading-terminal "order entry" overlay. */
+
+.palette {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(1rem, 12vh, 6rem) var(--space-4) var(--space-4);
+  background-color: rgb(0 0 0 / 0.62);
+  backdrop-filter: blur(10px) saturate(1.2);
+}
+
+/* Panel ------------------------------------------------------------ */
+.palette__panel {
+  width: min(600px, 100%);
+  max-height: min(440px, 80dvh);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: var(--border-thin) solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow:
+    0 24px 64px rgb(0 0 0 / 0.45),
+    0 0 0 1px rgb(108 99 242 / 0.14),
+    0 0 44px rgb(34 211 238 / 0.08);
+  animation: palette-in var(--duration-base) var(--ease-out);
+}
+
+@keyframes palette-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palette__panel {
+    animation: none;
+  }
+}
+
+/* Prompt line ------------------------------------------------------- */
+.palette__prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.4ch;
+  padding: 0.8rem 1rem;
+  border-bottom: var(--border-thin) solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+}
+
+.palette__user {
+  color: var(--color-brand);
+  white-space: nowrap;
+}
+
+.palette__colon,
+.palette__tilde,
+.palette__dollar {
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+.palette__input {
+  flex: 1;
+  min-width: 0;
+  margin-left: 0.5ch;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+}
+
+.palette__input::placeholder {
+  color: var(--color-text-faint);
+}
+
+/* Blinking block caret feel (progressive; native caret stays usable). */
+.palette__input:focus {
+  animation: palette-caret-blink 1.15s steps(1, end) infinite;
+}
+
+@keyframes palette-caret-blink {
+  50% {
+    caret-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palette__input:focus {
+    animation: none;
+  }
+}
+
+/* Close chip --------------------------------------------------------- */
+.palette__close {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0.2rem 0.5rem;
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.palette__close:hover,
+.palette__close:focus-visible {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+/* List ---------------------------------------------------------------- */
+.palette__list {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-2);
+}
+
+.palette__group + .palette__group {
+  margin-top: var(--space-3);
+}
+
+.palette__group-label {
+  margin: 0 0 0.35rem;
+  padding-left: 0.55rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.palette__row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.5rem 0.55rem;
+  border: var(--border-thin) solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-muted);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.palette__row--active {
+  background: color-mix(in srgb, var(--color-brand) 10%, transparent);
+  border-color: color-mix(in srgb, var(--color-brand) 32%, transparent);
+  color: var(--color-text);
+}
+
+/* Ticker chip ---------------------------------------------------------- */
+.palette__ticker {
+  padding: 0.1rem 0.42rem;
+  border-radius: var(--radius-sm);
+  border: var(--border-thin) solid var(--color-border);
+  background: color-mix(in srgb, var(--color-brand) 7%, transparent);
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+/* Label + hint + copied flag -------------------------------------------- */
+.palette__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.92rem;
+  color: inherit;
+}
+
+.palette__hint {
+  justify-self: end;
+  color: var(--color-text-faint);
+  font-size: 0.72rem;
+}
+
+.palette__copied {
+  justify-self: end;
+  color: var(--color-up);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  animation: palette-pop var(--duration-base) var(--ease-out);
+}
+
+@keyframes palette-pop {
+  from {
+    opacity: 0;
+    transform: translateX(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palette__copied {
+    animation: none;
+  }
+}
+
+/* Empty state ------------------------------------------------------------ */
+.palette__empty,
+.palette__empty-hint {
+  margin: 0;
+  padding: 0.9rem 0.55rem 0.2rem;
+}
+
+.palette__empty {
+  font-size: 0.85rem;
+  color: var(--color-down);
+}
+
+.palette__empty-hint {
+  padding-top: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--color-text-faint);
+}
+
+/* Status bar -------------------------------------------------------------- */
+.palette__status {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 0.55rem 1rem;
+  border-top: var(--border-thin) solid var(--color-border);
+  background: color-mix(in srgb, var(--color-bg) 55%, var(--color-surface));
+  color: var(--color-text-faint);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+/* Body scroll lock while the palette is open ------------------------------- */
+body.palette-open {
+  overflow: hidden;
+}
+
+/* Small screens ------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .palette {
+    padding-inline: var(--space-3);
+  }
+
+  .palette__row {
+    gap: 0.55rem;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  /* Drop the hint column on tiny screens; keep ticker + label + copied. */
+  .palette__hint {
+    display: none;
+  }
+}

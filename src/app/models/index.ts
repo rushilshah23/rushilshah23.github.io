@@ -15,3 +15,7 @@ export type { Achievement } from './achievement';
 export type { Faq } from './faq';
 export type { Industry } from './industry';
 export type { Stat } from './stat';
+export type {
+  CommandGroup,
+  PaletteCommand,
+} from './command';

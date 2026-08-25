@@ -27,6 +27,15 @@
 
     <div class="site-header__actions">
       <button
+        class="palette-chip mono"
+        type="button"
+        aria-label="Open command palette (Cmd+K)"
+        (click)="openCommandPalette()"
+      >
+        <span class="palette-chip__slash" aria-hidden="true">⌘</span>K
+      </button>
+
+      <button
         class="theme-toggle"
         type="button"
         (click)="toggleTheme()"
@@ -92,6 +101,9 @@
 <main class="site-main" id="main-content">
   <router-outlet />
 </main>
+
+<!-- Site-wide command palette (⌘K / Ctrl+K / /) -->
+<app-command-palette />
 
 <footer class="site-footer">
   <div class="container site-footer__inner">
