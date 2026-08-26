@@ -61,7 +61,7 @@ export const EXPERTISE: SkillDomain[] = [
       { name: 'OpenAI', icon: '/skills/openai.svg' },
       { name: 'RAG Pipelines', icon: '/skills/rag.svg' },
       { name: 'Prompt Engineering', icon: '/skills/prompt.svg' },
-      { name: 'Agentic AI (Hermes)', icon: '/skills/hermes.svg' },
+      { name: 'Agentic AI (Hermes)', icon: '/skills/hermes.png' },
       { name: 'LLM Applications', icon: '/skills/openai.svg' },
     ],
   },
