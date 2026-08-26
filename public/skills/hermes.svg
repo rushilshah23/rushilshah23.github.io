@@ -1,31 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Hermes caduceus">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Hermes">
   <defs>
-    <linearGradient id="hx-g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#6C63F2"/>
+    <linearGradient id="hg" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#8B85F6"/>
       <stop offset="100%" stop-color="#22D3EE"/>
     </linearGradient>
   </defs>
-  <g fill="none" stroke="url(#hx-g)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-    <!-- staff -->
-    <line x1="64" y1="14" x2="64" y2="114"/>
-    <!-- top knob (the head) -->
-    <circle cx="64" cy="18" r="5" fill="url(#hx-g)" stroke="none"/>
-    <!-- wings: two spread feathers each side, matching official art rows 0-2 -->
-    <!-- left wing upper -->
-    <path d="M58 36 C 40 26, 22 28, 12 40 C 24 40, 40 38, 58 42"/>
-    <!-- left wing lower -->
-    <path d="M58 44 C 42 42, 28 48, 20 58 C 30 52, 44 48, 58 50"/>
-    <!-- right wing upper -->
-    <path d="M70 36 C 88 26, 106 28, 116 40 C 104 40, 88 38, 70 42"/>
-    <!-- right wing lower -->
-    <path d="M70 44 C 86 42, 100 48, 108 58 C 98 52, 84 48, 70 50"/>
-    <!-- serpent coiling around staff: crossing X pattern (rows 8-13) -->
-    <!-- serpent A: left-to-right crossing -->
-    <path d="M50 62 C 66 60, 74 66, 64 72 C 54 78, 60 84, 72 84 C 80 84, 82 90, 78 98"/>
-    <!-- serpent B: right-to-left crossing -->
-    <path d="M78 62 C 62 60, 54 66, 64 72 C 74 78, 68 84, 56 84 C 48 84, 46 90, 50 98"/>
-    <!-- serpent heads -->
-    <circle cx="48" cy="58" r="4" fill="url(#hx-g)" stroke="none"/>
-    <circle cx="80" cy="58" r="4" fill="url(#hx-g)" stroke="none"/>
-  </g>
+  <!-- Hermes girl: solid bob profile with flowing hair, NO internal detail,
+       single gradient stroke. Bold enough to read clearly at 28px on any theme. -->
+  <path d="M36 32
+           C36 16 50 8 64 8
+           C80 8 94 18 98 34
+           C102 52 100 72 92 88
+           C88 96 82 100 74 100
+           C70 100 68 96 70 90
+           C80 78 84 64 82 50
+           C80 38 72 32 64 32
+           C56 32 48 36 46 44
+           C44 54 48 64 56 70
+           C60 73 60 80 54 82
+           C44 84 36 78 32 68
+           C28 58 30 44 36 32 Z"
+        fill="url(#hg)"/>
 </svg>
