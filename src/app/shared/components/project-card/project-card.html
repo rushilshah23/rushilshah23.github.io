@@ -27,6 +27,35 @@
       }
     </ul>
 
+    @if (project().problem || project().architecture || project().challenge || project().outcome) {
+      <dl class="project-card__case">
+        @if (project().problem; as problem) {
+          <div class="project-card__case-row">
+            <dt>Problem</dt>
+            <dd>{{ problem }}</dd>
+          </div>
+        }
+        @if (project().architecture; as arch) {
+          <div class="project-card__case-row">
+            <dt>Architecture</dt>
+            <dd>{{ arch }}</dd>
+          </div>
+        }
+        @if (project().challenge; as challenge) {
+          <div class="project-card__case-row">
+            <dt>Challenge</dt>
+            <dd>{{ challenge }}</dd>
+          </div>
+        }
+        @if (project().outcome; as outcome) {
+          <div class="project-card__case-row project-card__case-row--outcome">
+            <dt>Result</dt>
+            <dd>{{ outcome }}</dd>
+          </div>
+        }
+      </dl>
+    }
+
     <div class="project-card__links">
       @if (project().projectUrl; as liveUrl) {
         <a class="project-card__link" [href]="liveUrl" target="_blank" rel="noopener">

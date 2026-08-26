@@ -18,6 +18,13 @@ export const PROJECTS: Project[] = [
     projectUrl: 'https://gstmind.qzz.io',
     year: '2025',
     featured: true,
+    problem:
+      'SMEs and enterprises processed GST invoices manually, so accounts teams spent hours on data entry and reconciliation every month.',
+    architecture:
+      'FastAPI microservices for invoice ingestion and validation, a model-agnostic AI extraction worker on Celery, and a Jenkins CI/CD pipeline shipping Docker images to EC2 behind Nginx.',
+    challenge:
+      'Keeping extraction model-agnostic so providers could be swapped without touching the ingestion pipeline, while maintaining a consistent invoice schema across varied layouts.',
+    outcome: 'Cut manual accounting work by ~90% for the target SME/enterprise segment.',
   },
   {
     id: 'breakout-scanner',
@@ -30,6 +37,14 @@ export const PROJECTS: Project[] = [
     year: '2025',
     featured: true,
     privateRepo: true,
+    problem:
+      'Trading ideas were validated on gut feel; there was no cost-aware way to test a strategy against historical data before risking capital.',
+    architecture:
+      'A Python scanner surfacing NSE breakout signals into structured CSVs, plus a backtesting engine that models STT, brokerage and slippage. An agentic AI layer (Hermes) runs nightly cost-aware walk-forward runs across strategy configs, archiving every run and promoting the strongest setups into a curated best-of set.',
+    challenge:
+      'Making backtests honest: modelling real trading costs and walk-forward splits so a result reflects what capital would actually have earned, not a curve-fit fantasy.',
+    outcome:
+      'A destroy-test-passed rule set held as the live crown setup (rs60, ₹1L capital), with the research loop running autonomously and cost-aware.',
   },
   {
     id: 'jwt-auth-system',
@@ -42,6 +57,13 @@ export const PROJECTS: Project[] = [
     codeUrl: 'https://github.com/rushilshah23/Authentication-system',
     year: '2025',
     featured: true,
+    problem:
+      'Applications needed a single, secure identity layer with social login and token lifecycle management instead of rolling their own auth.',
+    architecture:
+      'A production-grade FastAPI microservice: email plus social login (Google, GitHub), JWT access/refresh tokens, deployed on Kubernetes with auto-scaling and a persistent PostgreSQL backing store.',
+    challenge:
+      'Scaling under variable load while keeping refresh-token rotation safe and the backing store highly available during deployments.',
+    outcome: 'A reusable auth service with HA posture, ready to drop into other systems.',
   },
   {
     id: 'examinator',

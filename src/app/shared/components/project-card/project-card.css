@@ -125,3 +125,41 @@
   color: var(--color-text-faint);
   font-weight: 500;
 }
+
+/* Case-study detail block (Problem / Architecture / Challenge / Result) */
+.project-card__case {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-4);
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 62%, var(--color-bg));
+}
+
+.project-card__case-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.project-card__case-row dt {
+  font-family: var(--font-mono);
+  font-size: var(--font-body-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  padding-top: 0.15rem;
+}
+
+.project-card__case-row dd {
+  margin: 0;
+  font-size: var(--font-body-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.project-card__case-row--outcome dd {
+  color: var(--color-up);
+}

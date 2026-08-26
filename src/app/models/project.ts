@@ -22,4 +22,12 @@ export interface Project {
   featured?: boolean;
   /** True when the repository is private (renders a lock instead of a link). */
   privateRepo?: boolean;
+  /** Case-study problem statement (the gap this project closed). */
+  problem?: string;
+  /** High-level architecture: services, data stores, deploy target. */
+  architecture?: string;
+  /** Hard engineering challenge overcome. */
+  challenge?: string;
+  /** Measurable outcome (evidence > badge). */
+  outcome?: string;
 }
